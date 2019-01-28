@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+   <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main-grid.css">
+
+  </head>
+  <body>
+	<header>
+		<div class="container">
+		  <div class="row">
+		    <div class="col-sm-3"></div>
+		    <div class="col-sm-6" align="center">
+		      <p id="title-text">Dinner Planner</p> 
+		    </div>
+		    <div class="col-sm-3"></div>
+		  </div>
+		</div>
+	</header>
+	<main>
+		<div class="container" id="nav-bar">
+		  <div class="row">
+		    <div class="col-sm-3" id="side-bar">
+		    	<nav>
+		    		<div class="col">
+			    		<p id="dinner-text">My Dinner</p>
+			    		<form >
+						  People:
+						  <input type="number" name="quantity" min="1" max="20">
+						</form>
+						<div class="row" id="content">
+							<div class="col-sm-6 d-flex justify-content-start"><p>Dish Name</p></div>
+							<div class="col-sm-6 d-flex justify-content-end"><p>Cost</p></div>
+						</div>
+						<div class="d-flex justify-content-end"id="total-cost">0.0 SEK</div>
+						<div id="confirm-button" class="d-flex justify-content-center">Confirm Dinner</div>
+					</div>
+		    	</nav>
+		    </div>
+		    <div class="col-sm-9">
+		    	<div class="row">
+		    		<div id="find-dish"><p>FIND A DISH</p></div>
+		    			
+		    	</div>
+		    	<div class="row" id="values">
+		    		<div class="col-sm-4">
+		    			<form>
+						  <input type="text" name="firstname" value="Enter Key Words"><br>
+						</form>
+		    		</div>
+		    		<div class="col-sm-4">
+		    			<form>
+							<select name="food">
+							    <option value="main-course">Main Course</option>
+							    <option value="side-dish">Side Dish</option>
+							    <option value="dessert">Dessert</option>
+							    <option value="appetiser">Appetiser</option>
+						    </select>
+						  <br><br>
+						
+						</form>
+					</div>
+		    		<div class="col-sm-4">
+		    			<div id="confirm-button" class="d-flex justify-content-center">Search</div>
+		    		</div>
+		    	</div>
+		    		<div class="d-flex justify-content-around">
+		    			<div class="d-flex p-5"></div>
+		    			<div class="d-flex p-5"></div>
+		    			<div class="d-flex p-5"></div>
+		    			<div class="d-flex p-5"></div>
+		    			<div class="d-flex p-5"></div>
+		    		</div>	    			
+		    </div>
+			</div>
+		</div>
+	</main>
+  </body>
+</html>
