@@ -35,11 +35,11 @@
 		</div>
 	</header>
 	<main>
-		<div class="container-fluid">
+		<div class="container-fluid" hidden>
 		  <div class="row">
-		    <div class="col-xs-12 col-sm-2 col-md-2 col-md-2 menu">
+		    <div class="col-xs-12 col-sm-2 col-md-2 col-md-2 menu" hidden>
             <div class="dinner-planner">
-                <p id="dinner-text">My Dinner<span onclick="expand()" class="d-sm-none fa fa-bars right"></span></p>
+              <p id="dinner-text">My Dinner<span onclick="expand()" class="d-sm-none fa fa-bars right"></span></p>
               <div class="d-none d-sm-block quantity hide">
 						    People
                 <select class="" name="quantity" required>
@@ -50,7 +50,7 @@
                 </select>
 						  </div>
             </div>
-            <div class="d-none d-sm-block bottom-container hide">
+          <div class="d-none d-sm-block bottom-container hide">
             <div class="cart-container">
               <div class="cart-header-container">
                 <p class="cart-header-data">Dish Name</p>
@@ -64,10 +64,9 @@
             <div>
                   <button class="button center" type="button" name="button">Confirm Dinner</button>
             </div>
-          </div>
-          
+          </div>    
 		    </div>
-            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 middle">
+        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 screen-1 middle">
               <h2>LASAGNE</h2>
               <figure>
                 <img src="images/meatballs.jpg" alt="Meatballs">
@@ -76,7 +75,7 @@
               </figure>
               <button class="button" type="button" name="previous">Back to search</button>
             </div>
-            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 ingredients">
+            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 screen-1 ingredients">
               <table>
                 <thead>
                   <tr>
@@ -108,9 +107,29 @@
                   <td>10.20</td>
                 </tr>
               </table>
-            </div>	
+            </div>    	
 		    	</div>	    			
 		    </div>
+        <div class="container-fluid">
+          <div class="row mini-menu">
+            <div class="col-xs-6">
+              <p>My Dinner: 3 People</p>
+            </div>
+            <div class="right col-xs-6">
+              <button class="button right" type="button" name="button">Go back and edit dinner</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-8">
+              
+            </div>
+            <div class="col-xs-4">
+              
+            </div>
+            
+          </div>
+          
+        </div>
 	</main>
   </body>
 </html>

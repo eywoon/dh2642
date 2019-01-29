@@ -7,6 +7,7 @@ main{
 header{
 	padding:2em 0em 2em 0em;
 	background-color: rgb(223,223,223);
+	border-bottom: 3px solid grey;
 }
 
 
@@ -95,6 +96,9 @@ button {
 	font-size: 1.5em;
 	height: 10px;
 }
+p {
+	height: 10px;
+}
 .cart-data-container {
 		
 		display: table-row; 
@@ -113,6 +117,15 @@ button {
 .middle {
 	position: relative;
 	z-index: 5;
+}
+.mini-menu {
+	padding: 1em 1em 1em 1em;
+	border-bottom: 3px solid black;
+}
+
+.right {
+	margin-left: auto;
+	margin-right: 1em;
 }
 .center {
 	margin: 0 auto;
