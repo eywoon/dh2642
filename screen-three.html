@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+   <!-- Latest compiled and minified CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main-grid.css">
+
+  </head>
+  <body>
+	<header>
+		<div class="container">
+		  <div class="row">
+		    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
+		      <h1 id="title-text">Dinner Planner</h1> 
+		    </div>
+		  </div>
+		</div>
+	</header>
+	<main>
+		<div class="container-fluid">
+		  <div class="row">
+		    <div class="col-xs-12 col-sm-2 col-md-2 col-md-2 side-bar">
+		    	<nav>
+            <div class="dinner-planner">
+              <div class="">
+                <p id="dinner-text">My Dinner<span style="float: right" class="fa fa-bars"></span></p>
+                
+              </div>
+              <div class="d-none d-sm-block">
+						    People:
+                <select class="" name="quantity" required>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+						  </div>
+            </div>
+            <div class="d-none d-sm-block">
+            <div class="cart-container">
+              <div class="cart-header-container">
+                <p class="cart-header-data">Dish Name</p>
+                <p class="cart-header-data">Cost</p>
+              </div>
+              <div class="cart-data-container">
+                <p class="cart-data">Lasagne</p>
+                <p class="cart-data">SEK 11.20</p>
+              </div>
+            </div>
+            <div>
+                  <button id="sam" class="button" type="button" name="button">Confirm Dinner</button>
+            </div>
+          </div>
+		    	</nav>
+		    </div>
+            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+              <h2>LASAGNE</h2>
+              <figure>
+                <img src="images/meatballs.jpg" alt="Meatballs">
+                <figcaption class="image-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est  laborum.
+                </figcaption>
+              </figure>
+              <button class="button" type="button" name="previous">Back to search</button>
+            </div>
+            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 ingredients">
+              <table>
+                <thead>
+                  <tr>
+                    <th colspan="6"><p id="ingredients-header"><b>INGREDIENTS FOR X PEOPLE</b></p></th>
+                  </tr>
+                  <tr>
+                    <td colspan="6"><hr></td>
+                  </tr>
+                </thead>
+                <tr>
+                  <td>2 tbsp</td>
+                  <td>olive oil</td>
+                  <td>SEK</td>
+                  <td>0.20</td>
+                </tr>
+                <tr>
+                  <td>750 g</td>
+                  <td>lean beef mince</td>
+                  <td>SEK</td>
+                  <td>10</td>
+                </tr>
+                <tr>
+                  <td colspan="6"><hr/></td>
+                </tr>
+                <tr>
+                  <td><button class="button" type="button" name="add-to-menu">Add to Menu</button></td>
+                  <td></td>
+                  <td>SEK</td>
+                  <td>10.20</td>
+                </tr>
+              </table>
+            </div>	
+		    	</div>	    			
+		    </div>
+	</main>
+  </body>
+</html>
