@@ -41,4 +41,18 @@
   .boxes{
   	width: 300px;
   }
+  .values, #find-dish{
+    visibility: hidden;
+    height: 0px;
+  }
+
+  #box-container{
+  margin-top:1em;
+}
+
+#pad{
+  padding-top:0;
+}
+
+
 /*Screen two*/
