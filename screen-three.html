@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dinner planner</title>
-
+    
    <!-- Latest compiled and minified CSS -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
@@ -21,6 +21,7 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="main-grid.css">
+  
 
   </head>
   <body>
@@ -36,15 +37,11 @@
 	<main>
 		<div class="container-fluid">
 		  <div class="row">
-		    <div class="col-xs-12 col-sm-2 col-md-2 col-md-2 side-bar">
-		    	<nav>
+		    <div class="col-xs-12 col-sm-2 col-md-2 col-md-2 menu">
             <div class="dinner-planner">
-              <div class="">
-                <p id="dinner-text">My Dinner<span style="float: right" class="fa fa-bars"></span></p>
-                
-              </div>
-              <div class="d-none d-sm-block">
-						    People:
+                <p id="dinner-text">My Dinner<span onclick="expand()" class="d-sm-none fa fa-bars right"></span></p>
+              <div class="d-none d-sm-block quantity hide">
+						    People
                 <select class="" name="quantity" required>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -53,7 +50,7 @@
                 </select>
 						  </div>
             </div>
-            <div class="d-none d-sm-block">
+            <div class="d-none d-sm-block bottom-container hide">
             <div class="cart-container">
               <div class="cart-header-container">
                 <p class="cart-header-data">Dish Name</p>
@@ -65,12 +62,12 @@
               </div>
             </div>
             <div>
-                  <button id="sam" class="button" type="button" name="button">Confirm Dinner</button>
+                  <button class="button center" type="button" name="button">Confirm Dinner</button>
             </div>
           </div>
-		    	</nav>
+          
 		    </div>
-            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 content middle">
               <h2>LASAGNE</h2>
               <figure>
                 <img src="images/meatballs.jpg" alt="Meatballs">
@@ -79,7 +76,7 @@
               </figure>
               <button class="button" type="button" name="previous">Back to search</button>
             </div>
-            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 ingredients">
+            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 content ingredients">
               <table>
                 <thead>
                   <tr>
@@ -117,3 +114,13 @@
 	</main>
   </body>
 </html>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+  function expand() {
+    $(".hide").toggleClass("d-sm-block").toggleClass("d-none").toggleClass("overlay");
+    console.log("Hej");
+  }
+</script>
