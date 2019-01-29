@@ -1,14 +1,10 @@
-div{
-	border: 1px solid red;
-}
-
 main{
 	padding: 0em;
 }
 
 nav{
 	border: 2px solid black;
-	height:100vh;
+	height:100%;
 }
 
 #nav-bar{
@@ -16,15 +12,9 @@ nav{
 	padding: 0;
 }
 
-#dinner-text{
-	font-size: 1.5em;
-}
 
-#side-bar{
-	margin:0em;
 
-	padding: 0em;
-}
+
 
 #content{
 	background-color: rgb(223,223,223);
@@ -93,11 +83,5 @@ form{
 #pic-text{
 	background-color: rgb(223,223,223);
 }
-
-
-
-
-
-
 
 
