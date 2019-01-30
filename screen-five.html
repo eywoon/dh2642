@@ -35,7 +35,7 @@
 		</div>
 	</header>
 	<main>
-		<div class="container-fluid">
+		<div class="container-fluid" hidden>
 		  <div class="row">
 		    <div class="col-xs-12 col-sm-2 col-md-2 col-md-2 menu">
             <div class="dinner-planner">
@@ -57,7 +57,7 @@
                 <p class="cart-header-data">Cost</p>
               </div>
               <div class="cart-data-container">
-                <p class="cart-data">Lasagne</p>
+                <p class="cart-data"></p>
                 <p class="cart-data">SEK 11.20</p>
               </div>
             </div>
@@ -66,7 +66,7 @@
             </div>
           </div>    
 		    </div>
-        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 screen-1 middle" hidden>
+        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 screen-1 middle">
               <h2>LASAGNE</h2>
               <figure>
                 <img src="images/meatballs.jpg" alt="Meatballs">
@@ -107,24 +107,35 @@
                   <td>10.20</td>
                 </tr>
               </table>
-            </div>    	
+            </div>
+                	
 		    	</div>	    			
 		    </div>
-        <div class="container-fluid">
+        <div class="container-fluid screen-5">
           <div class="row mini-menu">
             <div class="col-xs-6">
               <p>My Dinner: 3 People</p>
             </div>
-            <div class="right col-xs-6">
-              <button class="button right" type="button" name="button">Go back and edit dinner</button>
+            <div class="col-xs-6 right-sticky">
+              <button class="button" type="button" name="button">Go back and edit dinner</button>
             </div>
           </div>
           <div class="row">
             <div class="col-xs-8">
-              
+              <div id="box-container">
+              <div id="box1" class="boxes float-left d-flex align-items-end">
+                <div class="recipe-name"> Lasange </div>
+                </div>
+                <div id="box4" class="boxes float-left d-flex align-items-end">
+                  <div class="recipe-name"> Florentina </div>
+                </div>
+                <div id="box5" class="boxes float-left d-flex align-items-end">
+                  <div class="recipe-name"> Boiled Cod </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="col-xs-4">
-              
             </div>
             
           </div>
