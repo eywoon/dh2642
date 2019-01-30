@@ -3,49 +3,97 @@ class DinnerModel {
 
     constructor(){
 	this.dishes=dishesConst; // to be replaced in lab 3
-	
+	this.amountOfGuests = 0;;
+  this.selectedDishes = [null, null, null];
+  
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 
-    }
 
 	setNumberOfGuests(num) {
-		//TODO Lab 1
+		this.amountOfGuests = num;
 	}
 	
 	getNumberOfGuests() {
+    return this.amountOfGuests;
 		//TODO Lab 1
 	}
 
 	//Returns the dish that is on the menu for selected type 
 	getSelectedDish(type) {
-		//TODO Lab 1
-	}
+    switch(type) {
+      case 'starter':
+        return selectedDishes[0];
+        break;
+      case 'main dish':
+        return selectedDishes[1]
+        break;
+      case 'dessert':
+        return selectedDishes[2]
+        break;
+    }
+   }
 
 	//Returns all the dishes on the menu.
 	getFullMenu() {
+    return this.selectedDishes;
 		//TODO Lab 1
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	getAllIngredients() {
-		//TODO Lab 1
+	 var ingredients = [];
+    selectedDishes.forEach(function(dish) {
+      if(dish != null) {
+        ingredients.concat(dish.ingredients);
+      }
+    }) 
+    return ingredients;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	getTotalMenuPrice() {
-		//TODO Lab 1
+		var ingredients = getAllIngredients();
+    var price = 0;
+    ingredients.forEach(function(ingredient) {
+      price+=ingredient.price;
+    })
+    price*=this.numberOfGuests;
+    return price;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	addDishToMenu(id) {
-		//TODO Lab 1 
+    let dish= getDish(id);
+    switch(dish.type) {
+      case 'starter':
+        selectedDishes[0] = dish;
+        break;
+      case 'main dish':
+        selectedDishes[1] = dish;
+        break;
+      case 'dessert':
+        selectedDishes[2] = dish;
+        break;
+    }
 	}
 
 	//Removes dish from menu
 	removeDishFromMenu(id) {
-		//TODO Lab 1
+    
+    let dish= getDish(id);
+    switch(dish.type) {
+      case 'starter':
+        selectedDishes[0] = null;
+        break;
+      case 'main dish':
+        selectedDishes[1] = null;
+        break;
+      case 'dessert':
+        selectedDishes[2] = null;
+        break;
+    }
 	}
 
     
