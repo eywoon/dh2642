@@ -125,10 +125,10 @@ button {
 }
 .mini-menu {
 	border-bottom: 3px solid black;
-	padding: 1em 1em 0 1em;
+	padding: 1em 4em 1em 4em;
 }
 .right-sticky {
-	margin-left: auto;
+	padding-left: 30%;
 }
 
 /*Screen two*/
@@ -142,7 +142,21 @@ button {
  height:100px;
  margin:1em 1em 1em 1em;
 }
-
+.image-container {
+	display: inline-flex;
+}
+.image {
+	width:100px;
+	height:100px;
+	border:2px solid black;
+	flex-shrink: 0;
+}
+.inline {
+	margin: 2em 2em 2em 2em;
+}
+h3 {
+	white-space: nowrap;
+}
 .recipe-name{
   background-color:gray;
   text-align:center;
