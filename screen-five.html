@@ -21,6 +21,7 @@
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="main-grid.css">
+    <link rel="stylesheet" href="screen-two.css">
   
 
   </head>
@@ -121,22 +122,41 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-8">
-              <div id="box-container">
-              <div id="box1" class="boxes float-left d-flex align-items-end">
-                <div class="recipe-name"> Lasange </div>
-                </div>
-                <div id="box4" class="boxes float-left d-flex align-items-end">
-                  <div class="recipe-name"> Florentina </div>
-                </div>
-                <div id="box5" class="boxes float-left d-flex align-items-end">
-                  <div class="recipe-name"> Boiled Cod </div>
+            <div class="col-xs-8" id="new-boxes">
+
+              <div class="container-fluid box-container">
+                <div class="row">
+                  <div class="col">
+                    <div id="box1" class="boxes d-flex align-items-end">
+                      <div class="recipe-name"> Boiled Cod </div>
+                    </div>
+                    <p class="total-amount">77,20 SEK</p>
+                  </div>
+                  <div class="col">
+                    <div id="box2" class="boxes d-flex align-items-end">
+                      <div class="recipe-name"> Lasange </div>
+                    </div>
+                    <p class="total-amount">180,60 SEK</p>
+                  </div>
+                  <div class="col">
+                    <div id="box3" class="boxes d-flex align-items-end">
+                      <div class="recipe-name"> Florentina </div>
+                    </div>
+                    <p class="total-amount">83.40 SEK</p>
+                  </div>
+                   <div class="col">
+                    <div id="box6" class="boxes"></div>
+                    <p class="total-amount-box-6">341,20 SEK</p>
                   </div>
                 </div>
               </div>
+              </div>
+              <div class="col-xs-4 d-flex justify-content-center" id="bottom-box">
+               <button id="print-button" class="button" type="button" name="button">Print full recipe</button>  
+
             </div>
-            <div class="col-xs-4">
             </div>
+            
             
           </div>
           
