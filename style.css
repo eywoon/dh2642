@@ -94,6 +94,7 @@ button {
 #dinner-text{
 	font-size: 1.5em;
 	height: 10px;
+	white-space: nowrap;
 }
 .cart-data-container {
 		
@@ -104,11 +105,9 @@ button {
 	padding: 5% 5% 5% 5%;
 }
 .menu{
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 	border: 3px solid black;
-	margin:0em;
-	padding: 0em;
-	position: relative;
-	z-index: 10;
 }
 .middle {
 	position: relative;
@@ -212,6 +211,6 @@ button {
 .recipe-description {
 	float: left;
 }
-h3 {
+h1, h2, h3, h4 {
 	white-space: nowrap;
 }
