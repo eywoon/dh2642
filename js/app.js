@@ -5,6 +5,7 @@ window.onload= function() {
 	// And create the instance of ExampleView
 	const frontPageView = new FrontPageView(document.querySelector("#frontPageView"));
 	//const sideBarView = new SideBarView(document.querySelector("#frontPageView"), model);
+	
 	/**
 	 * IMPORTANT: app.js is the only place where you are allowed to
 	 * query for elements in the whole document.
