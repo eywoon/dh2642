@@ -5,34 +5,164 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dinner planner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main-grid.css">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   </head>
   <body>
-	<div class="container">
-		<h1>Dinner planner</h1>
-		<div id="exampleView">
-			<div>
-				Number of guests: <span id="numberOfGuests"></span>
-			</div>
-			<div>
-          <button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-				<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-			</div>
-		</div>
-	</div>
+    <header>
+  		<div class="container">
+  		  <div class="row">
+  		    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
+  		      <h1 id="title-text">Dinner Planner</h1> 
+  		    </div>
+  		  </div>
+  		</div>
+  	</header>
+    
+    <!-- container for the main area under the header-->
+    <div class="container-fluid main-container">
+      <div class="row">
+        
+        
+        <!-- frontPageView-->
+        <div class="xs-col-12 container" id="frontPageView" hidden>
+    		  <div class="row">
+    		    <div class="col-sm-3"></div>
+    		    <div class="col-sm-6" align="center">
+    		    	<div class="col" id="text-container">
+    		    		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sed dictum nibh. Nulla dolor tellus, ullamcorper nec ex in, scelerisque rutrum ante. Curabitur mattis diam tellus, id aliquam ipsum commodo non. Nullam tempus massa et velit placerat porttitor. Sed posuere ipsum ut ex luctus sodales. 
+    		    	</div>
+    		    	<div class="col" id="button-container">
+    		    		<div class="button align-middle" >
+    		    			<p class="align-middle" id="button-text">Create New Dinner</p>
+    		    		</div>
+    		    	</div>
+    		    </div>
+    		    <div class="col-sm-3"></div>
+    		  </div>
+    		</div>
+        
+        
+        
+        <!-- sidebar  view-->
+        <div class="col-xs-12 col-sm-2 container-fluid" id="sideBarView">
+          <div class="row">
+            <div class="col-xs-12 menu">
+              <div class="dinner-planner">
+                <p id="dinner-text">My Dinner<span onclick="expand()" class="d-sm-none fa fa-bars right"></span></p>
+                <div class="d-none d-sm-block hide">
+                    People
+                  <select class="" name="" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
+                </div>
+              </div>
+              <div class="d-none d-sm-block bottom-container hide">
+                <div class="cart-container">
+                  <div class="cart-header-container">
+                    <p class="cart-header-data">Dish Name</p>
+                    <p class="cart-header-data">Cost</p>
+                  </div>
+                  <div class="cart-data-container">
+                    <p class="cart-data">Lasagne</p>
+                  <p class="cart-data">SEK 11.20</p>
+                </div>
+              </div>
+              <div>
+                <button class="button center" type="button" name="button">Confirm Dinner</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      <!-- DinnerSearchView-->
+      <div class="col-xs-12 col-sm-10 container-fluid" id="DishSearchView">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12">
+            <div class="col" id="pad">
+                <div class="row">
+                <div id="find-dish"><p>FIND A DISH</p></div>  
+              </div>
+              <div class="values row" id="values">
+                <div class="col" id="pad">
+                  <form>
+                  <input type="text" name="firstname" value="Enter Key Words"><br>
+                </form>
+                </div>
+                <div class="col">
+                  <form>
+                  <select name="food">
+                      <option value="main-course">Main Course</option>
+                      <option value="side-dish">Side Dish</option>
+                      <option value="dessert">Dessert</option>
+                      <option value="appetiser">Appetiser</option>
+                    </select>
+                  <br><br>					
+                </form>
+              </div>
+                <div class="col-sm-4">
+                  <div id="confirm-button" class="d-flex justify-content-center">Search</div>
+                </div>
+              </div>
+              <div id="box-container">
+              <div id="box1" class="boxes float-left d-flex align-items-end">
+                <div class="recipe-name"> Lasange </div>
+                </div>
+              <div id="box2" class="boxes float-left d-flex align-items-end">
+                <div class="recipe-name"> Pizza</div>
+              </div>
+              <div id="box3" class="boxes float-left d-flex align-items-end">
+                <div class="recipe-name"> Mushrooms </div>
+              </div>
+                <div id="box4" class="boxes float-left d-flex align-items-end">
+                  <div class="recipe-name"> Florentina </div>
+                </div>
+                <div id="box5" class="boxes float-left d-flex align-items-end">
+                  <div class="recipe-name"> Boiled Cod </div>
+                </div>
+              </div>    			
+            </div>
+          </div>  
+        </div> 	
+      </div>  
+      </div>
+      
+        
+    
+      
+  
+    <!-- frontpage  view-->
 
-    <!-- jQuery, only for use by Bootstrap -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+      
+  </div>
 
+  
 	<!-- The application JavaScript code -->
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
+	<script src="js/view/FrontPageView.js"></script>
 	<!-- TODO: Here you should include JS code for your other views -->
+  
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    function expand() {
+      $(".hide").toggleClass("d-sm-block").toggleClass("d-none").toggleClass("overlay");
+      console.log("Hej");
+    }
+  </script>
   </body>
+  
 </html>
