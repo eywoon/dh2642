@@ -5,7 +5,7 @@ class DinnerModel {
 	this.dishes=dishesConst; // to be replaced in lab 3
 	this.amountOfGuests = 0;;
   this.selectedDishes = [null, null, null];
-  
+}
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 
