@@ -114,12 +114,81 @@ button {
 	position: relative;
 	z-index: 5;
 }
+
 .center {
 	margin: 0 auto;
 	display:block;
 }
 
 .right {
-	float: right
+	float:right;
 }
+.mini-menu {
+	border-bottom: 3px solid black;
+	padding: 1em 1em 0 1em;
+}
+.right-sticky {
+	margin-left: auto;
+}
+
+/*Screen two*/
+#box-container{
+	margin-top:4em;
+}
+
+.boxes{
+ border:2px solid black;
+ width:100px;
+ height:100px;
+ margin:1em 1em 1em 1em;
+}
+
+.recipe-name{
+  background-color:gray;
+  text-align:center;
+  border-top:2px solid black;
+  width:100%;
+}
+
+#box1{
+	background-image: url(images/bakedbrie.jpg);
+}
+
+#box2{
+	background-image: url(images/icecream.jpg);
+}
+
+#box3{
+	background-image: url(images/meatballs.jpg);
+}
+
+#box4{
+	background-image: url(images/sourdough.jpg);
+}
+
+#box5{
+	background-image: url(images/toast.jpg);
+}
+
+@media only screen and (max-width: 600px) {
+  .boxes{
+  	width: 300px;
+  }
+  .values, #find-dish{
+    visibility: hidden;
+    height: 0px;
+  }
+
+  #box-container{
+  margin-top:1em;
+}
+
+#pad{
+  padding-top:0;
+}
+
+.box-container {
+	
+}
+
 
