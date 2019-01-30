@@ -88,15 +88,7 @@ div.nopadding {
 	padding-top:0.5em;
 }
 
-@media only screen and (max-width: 575px) {
-  #title-text{
-  	font-size: 2em;
-  }
-	.ingredients {
-		border: none;
-	}
-	
-}
+
 
 .cart-container {
 	display: table;
@@ -152,7 +144,8 @@ div.nopadding {
 	padding: 1em 1em 1em 1em;
 }
 .right-sticky {
-	padding-left: 25%;
+	padding: 1% 0 1% 0;
+	float:right;
 }
 
 /*Screen two*/
@@ -248,4 +241,20 @@ h1, h2, h3, h4 {
 }
 .fill-height {
 	height: 100%;
+}
+.bot-border {
+	border-bottom: 3px solid black;
+}
+
+@media only screen and (max-width: 575px) {
+  #title-text{
+  	font-size: 2em;
+  }
+	.ingredients {
+		border: none;
+	}
+	.right-sticky {
+		float: none;
+		padding-left: 25%;
+	}
 }
