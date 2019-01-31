@@ -238,7 +238,9 @@ h1, h2, h3, h4 {
 #DinnerPrintView {
 	padding: 1em 1em 1em 1em;
 }
-
+.description-header {
+	padding-bottom: 1em;
+}
 .side-pad {
 	padding-left: 2em;
 	padding-right: 2em;

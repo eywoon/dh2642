@@ -29,7 +29,9 @@
   <!-- container for the main area under the header-->
   <div class="container-fluid main-container">
     <div class="row">
-
+      
+      
+      
       <!-- frontPageView-->
       <div class="xs-col-12 container" id="frontPageView" hidden>
         <div class="row">
@@ -200,14 +202,14 @@
           </div>
         </div>
       </div>
-      
+
       <!-- TopBarView-->
-      
+
       <div class="col-xs-12 container-fluid" id="TopBarView">
         <div class="row bot-border">
           <div class="col-xs-12 col-sm-6">
             <div class="">
-              
+
             </div>
             <h3>My Dinner: 3 People</h3>
           </div>
@@ -215,34 +217,104 @@
             <div class="right-sticky">
               <button class="button" type="button" name="button">Go back and edit Dinner</button>
             </div>
-            
+
           </div>
-        </div>  
+        </div>
       </div>
-      
+
+
+
+
+      <!--DinnerOverView-->
+
+      <div class="col-xs-12 container-fluid" id="DinnerOverView">
+        <div class="row">
+          <div class="col-xs-8" id="new-boxes">
+
+            <div class="container-fluid box-container">
+              <div class="row">
+                <div class="col">
+                  <div id="box1" class="boxes d-flex align-items-end">
+                    <div class="recipe-name"> Boiled Cod </div>
+                  </div>
+                  <p class="total-amount">77,20 SEK</p>
+                </div>
+                <div class="col">
+                  <div id="box2" class="boxes d-flex align-items-end">
+                    <div class="recipe-name"> Lasange </div>
+                  </div>
+                  <p class="total-amount">180,60 SEK</p>
+                </div>
+                <div class="col">
+                  <div id="box3" class="boxes d-flex align-items-end">
+                    <div class="recipe-name"> Florentina </div>
+                  </div>
+                  <p class="total-amount">83.40 SEK</p>
+                </div>
+                <div class="col">
+                  <div id="box6" class="boxes"></div>
+                  <p class="total-amount-box-6">341,20 SEK</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-4 d-flex justify-content-center" id="bottom-box">
+            <button id="print-button" class="button" type="button" name="button">
+              Print full recipe
+            </button>
+          </div>
+        </div>
+      </div>
+
       <!-- DinnerPrintView-->
-      
-      <div class="col-xs-12 container-fluid" id="DinnerPrintView">
+
+      <div class="col-xs-12 container-fluid" id="DinnerPrintView" hidden>
         <div class="row">
           <div class="col-xs-12 col-sm-2">
             <img class="myimage" src="images/sourdough.jpg" alt="">
           </div>
           <div class="col-xs-12 col-sm-5">
             <div class="side-pad">
-              <h4>Lasagne</h4>
+              <h4 class="description-header">Lasagne</h4>
               <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
             </div>
           </div>
           <div class="col-xs-12 col-sm-5">
             <div class="side-pad">
-              <h4>Preparation</h4>
+              <h4 class="description-header">Preparation</h4>
               <p>
-                Lorem ipsum dolor sit amet, ligula vel arcu in, tempor et ligula est, sapien donec esse elementum gravida amet, nunc ac dictum, donec porta luctus aliquet egestas. Justo posuere dolor eu sit. Porta parturient sodales lectus amet erat etiam, ac quisque lectus magna, proin vel aliquet suscipit numquam, mauris et nec suspendisse cum dignissim mattis, arcu porta orci parturient at elit. Luctus neque quam diam porta nunc. Quisque pellentesque, vel eu eu orci. Velit fringilla rhoncus faucibus, ullamcorper torquent sagittis torquent ut.
+                Lorem ipsum dolor sit amet, ligula vel arcu in, tempor et ligula est, sapien donec esse elementum gravida amet, nunc ac dictum, donec porta luctus aliquet egestas. Justo posuere dolor eu sit. Porta parturient sodales lectus amet erat etiam, ac quisque
+                lectus magna, proin vel aliquet suscipit numquam, mauris et nec suspendisse cum dignissim mattis, arcu porta orci parturient at elit. Luctus neque quam diam porta nunc. Quisque pellentesque, vel eu eu orci. Velit fringilla rhoncus faucibus,
+                ullamcorper torquent sagittis torquent ut.
               </p>
             </div>
-          </div>        
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-2">
+            <img class="myimage" src="images/sourdough.jpg" alt="">
+          </div>
+          <div class="col-xs-12 col-sm-5">
+            <div class="side-pad">
+              <h4 class="description-header">Fiorentina</h4>
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-5">
+            <div class="side-pad">
+              <h4 class="description-header">Preparation</h4>
+              <p>
+                Lorem ipsum dolor sit amet, ligula vel arcu in, tempor et ligula est, sapien donec esse elementum gravida amet, nunc ac dictum, donec porta luctus aliquet egestas. Justo posuere dolor eu sit. Porta parturient sodales lectus amet erat etiam, ac quisque
+                lectus magna, proin vel aliquet suscipit numquam, mauris et nec suspendisse cum dignissim mattis, arcu porta orci parturient at elit. Luctus neque quam diam porta nunc. Quisque pellentesque, vel eu eu orci. Velit fringilla rhoncus faucibus,
+                ullamcorper torquent sagittis torquent ut.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+
+
     </div>
   </div>
 
