@@ -58,10 +58,10 @@
         <div class="row">
           <div class="col-xs-12 menu">
             <div class="dinner-planner">
-              <p id="dinner-text">My Dinner<span onclick="expand()" class="d-sm-none fa fa-bars right"></span></p>
+              <p id="dinner-text">My Dinner<span id="expand-button" class="d-sm-none fa fa-bars right"></span></p>
               <div class="d-none d-sm-block hide">
                 People
-                <select class="" name="" required>
+                <select id="numberOfGuestsSelect" class="" name="" required>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -89,9 +89,9 @@
       </div>
 
 
-      <!-- DinnerSearchView-->
+      <!-- dishSearchView-->
 
-      <div class="col-xs-12 col-sm-10 container-fluid" id="DishSearchView" hidden>
+      <div class="col-xs-12 col-sm-10 container-fluid" id="dishSearchView" hidden>
         <div class="row">
           <div class="col-xs-12 col-sm-12">
             <div class="col" id="pad">
@@ -121,22 +121,38 @@
                   <div id="confirm-button" class="d-flex justify-content-center">Search</div>
                 </div>
               </div>
-              <div id="box-container">
-                <div id="box1" class="boxes float-left d-flex align-items-end">
-                  <div class="recipe-name"> Lasange </div>
+              <div id="dish-item-container">
+                <div id="dish-1" class="dish-item boxes float-left" hidden>
+                  <div class="recipe-name"> French toast</div>
                 </div>
-                <div id="box2" class="boxes float-left d-flex align-items-end">
-                  <div class="recipe-name"> Pizza</div>
+                <div id="dish-2" class="dish-item boxes float-left" hidden>
+                  <div class="recipe-name"> Sourdough Starter</div>
                 </div>
-                <div id="box3" class="boxes float-left d-flex align-items-end">
-                  <div class="recipe-name"> Mushrooms </div>
+                <div id="dish-3" class="dish-item boxes float-left" hidden>
+                  <div class="recipe-name"> Baked Brie with Peaches </div>
                 </div>
-                <div id="box4" class="boxes float-left d-flex align-items-end">
-                  <div class="recipe-name"> Florentina </div>
+                <div id="dish-100" class="dish-item boxes float-left" hidden>
+                  <div class="recipe-name"> Meat balls </div>
                 </div>
-                <div id="box5" class="boxes float-left d-flex align-items-end">
-                  <div class="recipe-name"> Boiled Cod </div>
+                <div id="dish-101" class="dish-item boxes float-left" hidden>
+                  <div class="recipe-name"> MD 2 </div>
                 </div>
+                <div id="dish-102" class="dish-item boxes float-left" hidden>
+                  <div class="recipe-name"> MD 3 </div>
+                </div>
+                <div id="dish-103" class="dish-item boxes float-left" hidden>
+                  <div class="recipe-name"> MD 4 </div>
+                </div>
+                <div id="dish-200" class="dish-item boxes float-left" hidden>
+                  <div class="recipe-name"> Chocolat ice cream</div>
+                </div>
+                <div id="dish-201" class="dish-item boxes float-left" hidden>
+                  <div class="recipe-name"> Vanilla ice cream </div>
+                </div>
+                <div id="dish-202" class="dish-item boxes float-left" hidden>
+                  <div class="recipe-name"> Strawberry </div>
+                </div>
+                
               </div>
             </div>
           </div>
@@ -144,7 +160,7 @@
       </div>
 
       <!-- dish detail view-->
-      <div class="col-xs-12 col-sm-10 container-fluid" id="DishDetailView" hidden>
+      <div class="col-xs-12 col-sm-10 container-fluid" id="dishDetailView" hidden>
         <div class="row">
           <div class="col-xs-12 col-sm-6">
             <div class="dish-description">
@@ -205,13 +221,13 @@
 
       <!-- TopBarView-->
 
-      <div class="col-xs-12 container-fluid" id="TopBarView">
+      <div class="col-xs-12 container-fluid" id="topBarView" hidden>
         <div class="row bot-border">
           <div class="col-xs-12 col-sm-6">
             <div class="">
 
             </div>
-            <h3>My Dinner: 3 People</h3>
+            <h3>My Dinner: <span id="numberOfGuests"></span> People</h3>
           </div>
           <div class="col-xs-12 col-sm-6">
             <div class="right-sticky">
@@ -227,7 +243,7 @@
 
       <!--DinnerOverView-->
 
-      <div class="col-xs-12 container-fluid" id="DinnerOverView">
+      <div class="col-xs-12 container-fluid" id="dinnerOverView" hidden>
         <div class="row">
           <div class="col-xs-8" id="new-boxes">
 
@@ -268,7 +284,7 @@
 
       <!-- DinnerPrintView-->
 
-      <div class="col-xs-12 container-fluid" id="DinnerPrintView" hidden>
+      <div class="col-xs-12 container-fluid" id="dinnerPrintView" hidden>
         <div class="row">
           <div class="col-xs-12 col-sm-2">
             <img class="myimage" src="images/sourdough.jpg" alt="">
@@ -318,20 +334,18 @@
     </div>
   </div>
 
-
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <!-- The application JavaScript code -->
   <script src="js/app.js"></script>
   <script src="js/model/dinnerModel.js"></script>
   <script src="js/view/FrontPageView.js"></script>
-  <!-- TODO: Here you should include JS code for your other views -->
+  <script src="js/view/SideBarView.js"></script>
+  <script src="js/view/TopBarView.js"></script>
+  <script src="js/view/DishSearchView.js"></script>
+  
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script type="text/javascript">
-    function expand() {
-      $(".hide").toggleClass("d-sm-block").toggleClass("d-none").toggleClass("overlay");
-      console.log("Hej");
-    }
-  </script>
+
+
 </body>
 
 </html>

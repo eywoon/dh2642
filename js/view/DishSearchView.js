@@ -12,12 +12,18 @@
  * @param {Object} container - references the HTML parent element that contains the view.
  * @param {Object} model - the reference to the Dinner Model
  */
-class DinnerSearchView {
+class DishSearchView {
     constructor (container, model) {
 	     this.container=container;
-	      this.model=model;
-    }
-
-    // in lab 2, the Observer update method will come here
+	     this.model=model;
+       var menu = model.getAllDishes()
+       var dishContainer = $(container).find("#dish-item-container")
+       
+       menu.forEach(function(dish) {
+         dishContainer.append('<div id="dish-' + dish.id + '"><image src="images/' + dish.image + '"> </image><p>'+ dish.name +'</p></div>')
+       })
+      
+      
+  }
 }
  

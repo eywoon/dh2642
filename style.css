@@ -149,7 +149,7 @@ div.nopadding {
 }
 
 /*Screen two*/
-#box-container{
+#dish-item-container{
 	margin-top:4em;
 }
 
@@ -167,25 +167,40 @@ div.nopadding {
   width:100%;
 }
 
-#box1{
-	background-image: url(images/bakedbrie.jpg);
+/* #dish-1{
+	background-image: url(images/toast.jpg);
 }
 
-#box2{
-	background-image: url(images/icecream.jpg);
-}
-
-#box3{
-	background-image: url(images/meatballs.jpg);
-}
-
-#box4{
+#dish-2{
 	background-image: url(images/sourdough.jpg);
 }
 
-#box5{
-	background-image: url(images/toast.jpg);
+#dish-3{
+	background-image: url(images/bakedbrie.jpg);
 }
+
+#dish-100{
+	background-image: url(images/meatballs.jpg);
+}
+
+#dish-101{
+	background-image: url(images/bakedbrie.jpg);
+}
+#dish-102{
+	background-image: url(images/meatballs.jpg);
+}
+#dish-103{
+	background-image: url(images/meatballs.jpg);
+}
+#dish-200{
+	background-image: url(images/icecream.jpg);
+}
+#dish-201{
+	background-image: url(images/icecream.jpg);
+}
+#dish-202{
+	background-image: url(images/icecream.jpg);
+} */
 
 @media only screen and (max-width: 600px) {
   .boxes{
@@ -235,7 +250,7 @@ h1, h2, h3, h4 {
 #sideBarView {
 	border: 3px solid black;
 }
-#DinnerPrintView {
+#dinnerPrintView {
 	padding: 1em 1em 1em 1em;
 }
 .description-header {
