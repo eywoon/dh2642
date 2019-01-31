@@ -15,10 +15,17 @@
 class DinnerOverView {
     constructor (container, model) {
 	     this.container=container;
-	      this.model=model;
+	     this.model=model;
+       model.addObserver(this);
 
     }
-
+    update(model, changeDetails){
+      if(changeDetails === 0) {
+        console.log("not my cup of tea");
+      }
+     
+    } 
+    
     // in lab 2, the Observer update method will come here
 }
  

@@ -1,17 +1,46 @@
-//DinnerModel Object constructor
-class DinnerModel{
 
+class Observable{
     constructor(){
-	this.dishes=dishesConst; // to be replaced in lab 3
-	this.amountOfGuests = 0;
-  this.selectedDishes = [null, null, null];
+	   this._observers = [];
+   }
+
+    addObserver(observer){
+	   this._observers.push(observer);
+    }
+   
+    notifyObservers(changeDetails) {
+           for(var i=0; i<this._observers.length; i++) {
+                 this._observers[i].update(this, changeDetails);
+           }	
+     }
+
+     removeObserver(observer){  
+       for(var i=0; i<this._observers.length; i++) {
+             if(this._observers[i] === observer) {
+               this._observers.splice(i,1);
+             }
+       }	
+     }
 }
+
+
+
+
+//DinnerModel Object constructor
+class DinnerModel extends Observable{
+  constructor(){
+    super()
+	  this.dishes=dishesConst; // to be replaced in lab 3
+	  this.amountOfGuests = 0;
+    this.selectedDishes = [null, null, null];
+  }
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 
 
 	setNumberOfGuests(num) {
 		this.amountOfGuests = num;
+    this.notifyObservers(0)
 	}
 	
 	getNumberOfGuests() {
