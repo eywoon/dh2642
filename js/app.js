@@ -7,10 +7,8 @@ window.onload= function() {
 	const sideBarView = new SideBarView(document.querySelector("#sideBarView"), model);
 	//const topBarView = new TopBarView(document.querySelector("#topBarView"), model);
 	const dishSearchView = new DishSearchView(document.querySelector("#dishSearchView"), model);
-		$("#sideBarView").removeAttr('hidden');
-		$("#dishSearchView").removeAttr('hidden');
-	
-		console.log("hej");
+	$("#sideBarView").removeAttr('hidden');
+	$("#dishSearchView").removeAttr('hidden');
 	/**
 	document.querySelector("#sideBarView").show()
 	 * IMPORTANT: app.js is the only place where you are allowed to
