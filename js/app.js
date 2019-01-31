@@ -3,12 +3,10 @@ window.onload= function() {
 	const model = new DinnerModel();
 	
 
-	//const frontPageView = new FrontPageView(document.querySelector("#frontPageView"));
+	const frontPageView = new FrontPageView(document.querySelector("#frontPageView"));
 	const sideBarView = new SideBarView(document.querySelector("#sideBarView"), model);
-	//const topBarView = new TopBarView(document.querySelector("#topBarView"), model);
+	const topBarView = new TopBarView(document.querySelector("#topBarView"), model);
 	const dishSearchView = new DishSearchView(document.querySelector("#dishSearchView"), model);
-	$("#sideBarView").removeAttr('hidden');
-	$("#dishSearchView").removeAttr('hidden');
 	/**
 	document.querySelector("#sideBarView").show()
 	 * IMPORTANT: app.js is the only place where you are allowed to
@@ -18,3 +16,38 @@ window.onload= function() {
 	 */
 
 };
+window.screen1 = function() {
+	hideAll()
+	$("#frontPageView").removeAttr('hidden');
+}
+window.screen2 = function() {
+	hideAll();
+	$("#sideBarView").removeAttr('hidden');
+	$("#dishSearchView").removeAttr('hidden');
+}
+window.screen3 = function() {
+	hideAll()
+	$("#sideBarView").removeAttr('hidden');
+	$("#dishDetailView").removeAttr('hidden');
+}
+window.screen5 = function() {
+	hideAll();
+	$("#topBarView").removeAttr('hidden');
+	$("#dinnerOverView").removeAttr('hidden');
+}
+window.screen6 = function() {
+	hideAll();
+	$("#topBarView").removeAttr('hidden');
+	$("#dinnerPrintView").removeAttr('hidden');
+}
+
+function hideAll() {
+	console.log("hide");
+	$("#sideBarView").attr('hidden', true);
+	$("#frontPageView").attr('hidden', true);
+	$("#topBarView").attr('hidden', true);
+	$("#dishSearchView").attr('hidden', true);
+	$("#dishDetailView").attr('hidden', true);
+	$("#dinnerPrintView").attr('hidden', true);
+	$("#dinnerOverView").attr('hidden', true);
+}
