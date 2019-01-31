@@ -5,8 +5,13 @@ window.onload= function() {
 
 	const frontPageView = new FrontPageView(document.querySelector("#frontPageView"));
 	const sideBarView = new SideBarView(document.querySelector("#sideBarView"), model);
+	const sideBarViewController = new SideBarViewController(sideBarView, model);
 	const topBarView = new TopBarView(document.querySelector("#topBarView"), model);
+	const topBarViewController = new TopBarViewController(topBarView, model);
 	const dishSearchView = new DishSearchView(document.querySelector("#dishSearchView"), model);
+	const dishDetailView = new DishDetailView(document.querySelector("#dishDetailView"), model);
+	const dinnerPrintView = new DinnerPrintView(document.querySelector("#dinnerPrintView"), model);
+	const dinnerOverView = new DinnerOverView(document.querySelector("#dinnerOverView"), model);
 	/**
 	document.querySelector("#sideBarView").show()
 	 * IMPORTANT: app.js is the only place where you are allowed to
