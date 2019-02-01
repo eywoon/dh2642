@@ -66,17 +66,17 @@
                   </select>
               </div>
             </div>
-            <div class="d-none d-sm-block bottom-container hide">
+            <div class="d-none d-sm-block hide">
               <div id="cart-container">
                 <div class="cart-header-row">
                   <p class="cart-header-cell">Dish Name</p>
                   <p class="cart-header-cell">Cost</p>
                 </div>
-                  <div id="total-price-container">
-                    <p class="cart-cell"></p>
-                    <p class="cart-cell">SEK <span id="total-price-tag"></span></p>
-                  </div>
+                <div id="total-price-container">
+                  <p class="cart-cell"></p>
+                  <p class="cart-cell">SEK <span id="total-price-tag"></span></p>
                 </div>
+              </div>
               <div class="pad">
                 <button id="confirm-button" class="button center" type="button" name="button">Confirm Dinner</button>
               </div>
@@ -99,27 +99,22 @@
               </div>
               <div class="values row" id="values">
                 <div class="col" id="pad">
-                  <form>
-                    <input type="text" name="firstname" value="Enter Key Words"><br>
-                  </form>
+                  <input id="search-input" type="text" name="firstname" placeholder="Enter Key Words">
                 </div>
                 <div class="col">
-                  <form>
-                    <select name="food">
-                      <option value="main-course">Main Course</option>
-                      <option value="side-dish">Side Dish</option>
-                      <option value="dessert">Dessert</option>
-                      <option value="appetiser">Appetiser</option>
+                  <select name="types" id="select-type">
                     </select>
-                    <br><br>
-                  </form>
                 </div>
                 <div class="col-sm-4">
-                  <div id="confirm-button" class="d-flex justify-content-center">Search</div>
+                  <button id="search-button" class="button" type="button" name="button">Search</button>
                 </div>
               </div>
-              <div id="dish-item-container">
-                <!-- basically the dish item view-->
+
+              <!-- basically the dish item view-->
+              <div class="container-fluid">
+                <div class="row" id="dish-item-container">
+
+                </div>
               </div>
             </div>
           </div>
@@ -156,11 +151,11 @@
               </thead>
               <tr>
                 <td colspan="6">
-                  <hr/>
+                  <hr>
                 </td>
               </tr>
               <tr>
-                <td><button id="add-button"class="button" type="button" name="add-to-menu">Add to Menu</button></td>
+                <td><button id="add-button" class="button" type="button" name="add-to-menu">Add to Menu</button></td>
                 <td></td>
                 <td>SEK</td>
                 <td id="totalPriceTag"></td>
@@ -178,7 +173,7 @@
             <div class="">
 
             </div>
-            <h3>My Dinner: <span id="numberOfGuests">0</span> People</h3>
+            <h3>My Dinner: <span id="numberOfGuests"></span>1 People</h3>
           </div>
           <div class="col-xs-12 col-sm-6">
             <div class="right-sticky">
@@ -195,38 +190,34 @@
       <!--DinnerOverView-->
 
       <div class="col-xs-12 container-fluid" id="dinnerOverView" hidden>
-        <div class="row">
-          <div class="col-xs-8" id="new-boxes">
-
-            <div class="container-fluid box-container">
-              <div class="row">
-                <div class="col">
-                  <div id="box1" class="boxes d-flex align-items-end">
-                    <div class="recipe-name"> Boiled Cod </div>
-                  </div>
-                  <p class="total-amount">77,20 SEK</p>
-                </div>
-                <div class="col">
-                  <div id="box2" class="boxes d-flex align-items-end">
-                    <div class="recipe-name"> Lasange </div>
-                  </div>
-                  <p class="total-amount">180,60 SEK</p>
-                </div>
-                <div class="col">
-                  <div id="box3" class="boxes d-flex align-items-end">
-                    <div class="recipe-name"> Florentina </div>
-                  </div>
-                  <p class="total-amount">83.40 SEK</p>
-                </div>
-                <div class="col">
-                  <div id="box6" class="boxes"></div>
-                  <p class="total-amount-box-6">341,20 SEK</p>
-                </div>
+        <div class="row" id="selected-menu">
+          <div class="col-xs-12 col-sm-9 container-fluid">
+            <div class="row">
+              <div class="col-xs-12 col-sm-3 offset-sm-3 dish-item">
+                <image src='images/toast.jpg'></image>
+                <p class="dish-name">Lasagne</p>
+                <p class="dish-price">10</p>
+              </div>
+              <div class="col-xs-12 col-sm-3 dish-item">
+                <image src='images/toast.jpg'></image>
+                <p class="dish-name">Lasagne</p>
+                <p class="dish-price">10</p>
+              </div>
+              <div class="col-xs-12 col-sm-3 dish-item">
+                <image src='images/toast.jpg'></image>
+                <p class="dish-name">Lasagne</p>
+                <p class="dish-price">10</p>
               </div>
             </div>
           </div>
-          <div class="col-xs-4 d-flex justify-content-center" id="bottom-box">
-            <button id="print-button" class="button" type="button" name="button">
+          <div class="col-xs-12 col-sm-3 price-column">
+            <p>Total: <br> <span id="totalPriceTag">25 SEK</span></p>
+          </div>
+        </div>
+        <hr id="divider">
+        <div class="row">
+          <div class="col-xs-12 center">
+            <button id="print-button" class="button center" type="button" name="button">
               Print full recipe
             </button>
           </div>

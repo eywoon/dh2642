@@ -15,7 +15,32 @@
 
 class DishSearchViewController {
   constructor(view, model) {
-    
+    this.view = view;
+    this.model = model;
+    view.typeSelect.change(this.renderDishes.bind(this));
+    view.searchButton.click(this.renderDishes.bind(this))
+    view.searchInput.keypress(function(e) {
+      if (e.which == 13) {
+        this.view.searchButton.click();
+      }
+    }.bind(this));
+
+    view.typeSelect.change();
+  }
+
+  renderDishes() {
+    let option = this.view.typeSelect.val();
+    let filter = this.view.searchInput.val();
+    let dishes = this.model.getAllDishes(option, filter);
+    this.view.dishContainer.empty();
+    dishes.forEach(function(dish) {
+      let itemDetail = $(this.view.itemDetailView(dish));
+      itemDetail.click(function() {
+        this.model.setCurrentSelection(dish.id);
+        window.screen3()
+      }.bind(this));
+      this.view.dishContainer.append(itemDetail);
+    }.bind(this))
   }
 }
 
@@ -26,25 +51,25 @@ class DishSearchView {
   constructor(container, model) {
     this.container = container;
     this.model = model;
-    var menu = model.getAllDishes()
-    var dishContainer = $(container).find("#dish-item-container")
-    var self = this;
-    menu.forEach(function(dish) {
-      let itemDetail = $(self.itemDetailView(dish));
-      itemDetail.click(function() {
-        self.model.setCurrentSelection(dish.id);
-        window.screen3()
-      })
-      dishContainer.append(itemDetail);
-    })
+    this.typeSelect = $(container).find("#select-type")
+    this.dishContainer = $(container).find("#dish-item-container")
+    this.searchButton = $(container).find("#search-button")
+    this.searchInput = $(container).find("#search-input")
+    let types = this.model.getTypes();
+    this.typeSelect.append('<option value="">All</option>')
 
+    types.forEach(function(type) {
+      let string = type.charAt(0).toUpperCase() + type.slice(1);
+      this.typeSelect.append('<option value="' + type + '">' + string + '</option> ')
+    }.bind(this));
 
   }
+
   itemDetailView(dish) {
-    var html = `
-      <div id='dish-` + dish.id + `'>
+    let html = `
+      <div class="col-xs-12 col-sm-3 dish-item" id='dish-` + dish.id + `'>
         <image src='images/` + dish.image + `'></image>
-        <p>` + dish.name + `</p>
+        <p class="dish-name">` + dish.name + `</p>
       </div>
     `;
     return html;
