@@ -20,8 +20,10 @@
       if(view.expand.hasClass("d-sm-block")) {
         console.log("hide");
         view.sideBarMobilePrice.show();
+        console.log(view.sideBarMobilePrice);
       } else {
         console.log("show");
+        console.log(view.sideBarMobilePrice);
         view.sideBarMobilePrice.hide();
       }
     })
@@ -47,7 +49,7 @@ class SideBarView {
       this.totalPriceContainer = $(container).find("#total-price-container");
       this.totalPriceTag = $(container).find("#total-price-tag");
       this.confirmButton = $(container).find("#confirm-button");
-      this.sideBarMobilePrice = $(container).find("#sidebar-price");
+      this.sideBarMobilePrice = $(container).find(".sidebar-price");
       model.addObserver(this);
     }
     
@@ -56,8 +58,10 @@ class SideBarView {
           console.log("update");
         if(model.isMenuEmpty()) {
           this.confirmButton.addClass("blur");
+          this.sideBarMobilePrice.html("");
         } else {
           this.confirmButton.removeClass("blur");
+          this.sideBarMobilePrice.html(model.getTotalMenuPrice()+ " SEK");
         }
         this.cart.find('.cart-data').remove()
         let menu = model.getFullMenu();
