@@ -28,7 +28,7 @@ class SideBarView {
 	    this.model=model;
 	    this.numberOfGuestsSelect = $(container).find("#numberOfGuestsSelect");
       this.expandButton = $(container).find("#expand-button");
-      this.expand = $(".hide");
+      this.expand = $(container).find(".hide");
     }
   
     // in lab 2, the Observer update method will come here
