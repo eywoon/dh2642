@@ -11,6 +11,7 @@ window.onload= function() {
 	const topBarViewController = new TopBarViewController(topBarView, model);
 	const dishSearchView = new DishSearchView(document.querySelector("#dishSearchView"), model);
 	const dishDetailView = new DishDetailView(document.querySelector("#dishDetailView"), model);
+	const dishDetailViewController = new DishDetailViewController(dishDetailView, model);
 	const dinnerPrintView = new DinnerPrintView(document.querySelector("#dinnerPrintView"), model);
 	const dinnerOverView = new DinnerOverView(document.querySelector("#dinnerOverView"), model);
 	/**

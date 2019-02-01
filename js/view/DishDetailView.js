@@ -1,17 +1,13 @@
-/** ExampleView Object constructor
- * 
- * This object represents one specific view (in this case the Example view). 
- * 
- * It is responsible for:
- * - constructing the view (e.g. if you need to create some HTML elements procedurally) 
- * - populating the view with the data
- * - updating the view when the data changes
- * 
- * You should create a view class like this for every view in your UI.
- * 
- * @param {Object} container - references the HTML parent element that contains the view.
- * @param {Object} model - the reference to the Dinner Model
- */
+class DishDetailViewController {
+  constructor(view, model) {
+    view.backButton.click(() => window.screen2())
+    view.addButton.click(() => {
+      model.addSelectionToMenu()
+      window.screen2();
+    });
+  }
+}
+
 class DishDetailView {
   constructor(container, model) {
     this.container = container;
@@ -23,6 +19,8 @@ class DishDetailView {
     this.numberOfGuests = $(container).find("#numberOfGuests");
     this.tablePointer = $(container).find("thead");
     this.totalPriceTag = $(container).find("#totalPriceTag");
+    this.addButton = $(container).find("#add-button");
+    this.backButton = $(container).find("#back-button");
     model.addObserver(this);
   }
 
@@ -37,6 +35,7 @@ class DishDetailView {
         dish.ingredients.forEach(function(ingredient) {
         self.tablePointer.after(self.tableRow(ingredient, guests));
         })
+        this.totalPriceTag.html(model.getDishPrice(dish.id)* guests);
       break;
       case 2:
         this.dishName.html(dish.name);
@@ -48,7 +47,7 @@ class DishDetailView {
         dish.ingredients.forEach(function(ingredient) {
         self.tablePointer.after(self.tableRow(ingredient, guests));
         })
-        this.totalPriceTag.html(model.getDishPrice(dish.id));
+        this.totalPriceTag.html(model.getDishPrice(dish.id)* guests);
         break;
     }
   }
@@ -57,7 +56,7 @@ class DishDetailView {
     price *= guests;
     var html =`
       <tr class="recipe-data">
-        <td>`+ ingredient.quantity + " "+ ingredient.unit +`</td>
+        <td>`+ ingredient.quantity*guests + " "+ ingredient.unit +`</td>
         <td>`+ ingredient.name +`</td>
         <td>SEK</td>
         <td>`+ price +`</td>

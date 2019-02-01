@@ -54,7 +54,11 @@ class DinnerModel extends Observable{
     return this.amountOfGuests;
 		//TODO Lab 1
 	}
-
+  
+  addSelectionToMenu() {
+    console.log("addSelectionToMenu");
+    this.addDishToMenu(this.currentSelection)
+  }
 	//Returns the dish that is on the menu for selected type 
 	getSelectedDish(type) {
     switch(type) {
@@ -101,6 +105,7 @@ class DinnerModel extends Observable{
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	addDishToMenu(id) {
+    console.log("addDishToMenu", this.selectedDishes);
     let dish= this.getDish(id);
     switch(dish.type) {
       case 'starter':
@@ -113,6 +118,7 @@ class DinnerModel extends Observable{
         this.selectedDishes[2] = dish;
         break;
     }
+    console.log("after", this.selectedDishes);
     this.notifyObservers(1)
 	}
   

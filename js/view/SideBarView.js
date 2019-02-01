@@ -17,7 +17,7 @@
  constructor(view, model) {
     view.expandButton.click(() => view.expand.toggleClass("d-sm-block").toggleClass("d-none").toggleClass("overlay"));
     view.numberOfGuestsSelect.change(() => model.setNumberOfGuests(Number(view.numberOfGuestsSelect.find(":selected").text())))
-    
+    view.confirmButton.click(()=> window.screen5())
   }
 }
  
@@ -32,8 +32,8 @@ class SideBarView {
       this.cart = $(container).find("#cart-container");
       this.totalPriceContainer = $(container).find("#total-price-container");
       this.totalPriceTag = $(container).find("#total-price-tag");
+      this.confirmButton = $(container).find("#confirm-button");
       model.addObserver(this);
-      model.addDishToMenu(1);
     }
     
     update(model, changeDetails){
