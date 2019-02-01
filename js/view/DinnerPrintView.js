@@ -1,20 +1,48 @@
-/** ExampleView Object constructor
- * 
- * This object represents one specific view (in this case the Example view). 
- * 
- * It is responsible for:
- * - constructing the view (e.g. if you need to create some HTML elements procedurally) 
- * - populating the view with the data
- * - updating the view when the data changes
- * 
- * You should create a view class like this for every view in your UI.
- * 
- * @param {Object} container - references the HTML parent element that contains the view.
- * @param {Object} model - the reference to the Dinner Model
- */
-class DinnerPrintView {
-  
+class DinnerPrintViewController {
+  constructor(view, model) {
 
-    // in lab 2, the Observer update method will come here
+  }
 }
- 
+
+class DinnerPrintView {
+  constructor(container, model) {
+    this.container = container;
+    this.model = model;
+    model.addObserver(this);
+  }
+  update(model, changeDetails) {
+    if (changeDetails === 1) {
+      $(this.container).empty();
+      let dishes = model.getFullMenu();
+      dishes.forEach(function(dish) {
+        if(dish !== null) {
+            $(this.container).append(this.getDishView(dish));
+        }
+      }.bind(this))
+    }
+  }
+  getDishView(dish) {
+    return (
+      `
+    <div class="row">
+      <div class="col-xs-12 col-sm-2">
+        <img class="myimage" src="images/`+dish.image+`" alt="">
+      </div>
+      <div class="col-xs-12 col-sm-5">
+        <div class="side-pad">
+          <h4 class="description-header">`+dish.name+`</h4>
+          <p>`+dish.description+`</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-5">
+        <div class="side-pad">
+          <h4 class="description-header">Preparation</h4>
+          <p>This is how you prepare the dish</p>
+        </div>
+      </div>
+    </div>
+    `
+    )
+  }
+  // in lab 2, the Observer update method will come here
+}

@@ -37,8 +37,26 @@ class DinnerModel extends Observable {
   }
   //TODO Lab 1 implement the data structure that will hold number of guest
   // and selected dishes for the dinner menu
-
-
+ // changedetails for observers, 0: guess, 1: menu, 2: currentSelection
+  getNumberOfSelections() {
+    let selections = 0;
+    this.selectedDishes.forEach(function(selection) {
+      if(selection !== null) {
+        selections++;
+      }
+    })
+    return selections;
+  }
+  
+  isMenuEmpty() {
+    let empty = true;
+    this.selectedDishes.forEach(function(selection) {
+      if(selection !== null) {
+        empty = false;
+      }
+    })
+    return empty;
+  }
   getTypes() {
     return this.types;
   }
@@ -60,7 +78,6 @@ class DinnerModel extends Observable {
   }
 
   addSelectionToMenu() {
-    console.log("addSelectionToMenu");
     this.addDishToMenu(this.currentSelection)
   }
   //Returns the dish that is on the menu for selected type 
@@ -75,16 +92,7 @@ class DinnerModel extends Observable {
     //TODO Lab 1
   }
 
-  //Returns all ingredients for all the dishes on the menu.
-  getAllIngredients() {
-    var ingredients = [];
-    this.selectedDishes.forEach(function(dish) {
-      if (dish != null) {
-        ingredients = ingredients.concat(dish.ingredients);
-      }
-    })
-    return ingredients;
-  }
+
 
   //Returns the total price of the menu (all the ingredients multiplied by number of guests).
   getTotalMenuPrice() {
@@ -96,6 +104,19 @@ class DinnerModel extends Observable {
     price *= this.getNumberOfGuests();
     return price;
   }
+
+  //Returns all ingredients for all the dishes on the menu.
+  getAllIngredients() {
+    var ingredients = [];
+    this.selectedDishes.forEach(function(dish) {
+      if (dish != null) {
+        ingredients = ingredients.concat(dish.ingredients);
+      }
+    })
+    return ingredients;
+  }
+
+  
 
   //Adds the passed dish to the menu. If the dish of that type already exists on the menu
   //it is removed from the menu and the new one added.

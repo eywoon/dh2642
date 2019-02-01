@@ -16,6 +16,7 @@ window.onload= function() {
 	const dinnerOverView = new DinnerOverView(document.querySelector("#dinnerOverView"), model);
 	const dinnerOverViewController = new DinnerOverViewController(dinnerOverView, model);
 	const dinnerPrintView = new DinnerPrintView(document.querySelector("#dinnerPrintView"), model);
+	const dinnerPrintViewController = new DinnerPrintViewController(dinnerPrintView, model);
 
 	/**
 	document.querySelector("#sideBarView").show()

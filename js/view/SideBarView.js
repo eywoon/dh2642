@@ -15,9 +15,23 @@
  
  class SideBarViewController{
  constructor(view, model) {
-    view.expandButton.click(() => view.expand.toggleClass("d-sm-block").toggleClass("d-none").toggleClass("overlay"));
+    view.expandButton.click(() => {
+      view.expand.toggleClass("d-sm-block").toggleClass("d-none");
+      if(view.expand.hasClass("d-sm-block")) {
+        console.log("hide");
+        view.sideBarMobilePrice.show();
+      } else {
+        console.log("show");
+        view.sideBarMobilePrice.hide();
+      }
+    })
+    
     view.numberOfGuestsSelect.change(() => model.setNumberOfGuests(Number(view.numberOfGuestsSelect.find(":selected").text())))
-    view.confirmButton.click(()=> window.screen5())
+    view.confirmButton.click(()=> {
+      if(!model.isMenuEmpty()) {
+        window.screen5()
+      }  
+    })
   }
 }
  
@@ -33,11 +47,18 @@ class SideBarView {
       this.totalPriceContainer = $(container).find("#total-price-container");
       this.totalPriceTag = $(container).find("#total-price-tag");
       this.confirmButton = $(container).find("#confirm-button");
+      this.sideBarMobilePrice = $(container).find("#sidebar-price");
       model.addObserver(this);
     }
     
     update(model, changeDetails){
       if(changeDetails !== 2) { //do for both changes to guestnumber and changes to menu a lil hack
+          console.log("update");
+        if(model.isMenuEmpty()) {
+          this.confirmButton.addClass("blur");
+        } else {
+          this.confirmButton.removeClass("blur");
+        }
         this.cart.find('.cart-data').remove()
         let menu = model.getFullMenu();
         let self = this;

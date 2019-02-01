@@ -55,7 +55,7 @@
         <div class="row">
           <div class="col-xs-12 menu">
             <div class="dinner-planner">
-              <p id="dinner-text">My Dinner<span id="expand-button" class="d-sm-none fa fa-bars right"></span></p>
+              <p id="dinner-text">My Dinner<span id="expand-button" class="d-sm-none fa fa-bars right"></span><span class="d-sm-none right sidebar-price">20SEK</span></p>
               <div class="d-none d-sm-block hide">
                 People
                 <select id="numberOfGuestsSelect" class="" name="" required>
@@ -78,7 +78,7 @@
                 </div>
               </div>
               <div class="pad">
-                <button id="confirm-button" class="button center" type="button" name="button">Confirm Dinner</button>
+                <button id="confirm-button" class="button blur center" type="button" name="button">Confirm Dinner</button>
               </div>
             </div>
           </div>
@@ -173,7 +173,7 @@
             <div class="">
 
             </div>
-            <h3>My Dinner: <span id="numberOfGuests"></span>1 People</h3>
+            <h3>My Dinner: <span id="numberOfGuests">1</span> People</h3>
           </div>
           <div class="col-xs-12 col-sm-6">
             <div class="right-sticky">
@@ -190,31 +190,17 @@
       <!--DinnerOverView-->
 
       <div class="col-xs-12 container-fluid" id="dinnerOverView" hidden>
-        <div class="row" id="selected-menu">
+        <div class="row" >
           <div class="col-xs-12 col-sm-9 container-fluid">
-            <div class="row">
-              <div class="col-xs-12 col-sm-3 offset-sm-3 dish-item">
-                <image src='images/toast.jpg'></image>
-                <p class="dish-name">Lasagne</p>
-                <p class="dish-price">10</p>
-              </div>
-              <div class="col-xs-12 col-sm-3 dish-item">
-                <image src='images/toast.jpg'></image>
-                <p class="dish-name">Lasagne</p>
-                <p class="dish-price">10</p>
-              </div>
-              <div class="col-xs-12 col-sm-3 dish-item">
-                <image src='images/toast.jpg'></image>
-                <p class="dish-name">Lasagne</p>
-                <p class="dish-price">10</p>
-              </div>
+            <div class="row" id="selected-menu">
             </div>
           </div>
           <div class="col-xs-12 col-sm-3 price-column">
-            <p>Total: <br> <span id="totalPriceTag">25 SEK</span></p>
+            <hr class="divider mobile">
+            <p class="total-price">Total: <br> <span id="totalPriceTag">0</span>SEK</p>
           </div>
         </div>
-        <hr id="divider">
+        <hr class="divider">
         <div class="row">
           <div class="col-xs-12 center">
             <button id="print-button" class="button center" type="button" name="button">
@@ -227,52 +213,8 @@
       <!-- DinnerPrintView-->
 
       <div class="col-xs-12 container-fluid" id="dinnerPrintView" hidden>
-        <div class="row">
-          <div class="col-xs-12 col-sm-2">
-            <img class="myimage" src="images/sourdough.jpg" alt="">
-          </div>
-          <div class="col-xs-12 col-sm-5">
-            <div class="side-pad">
-              <h4 class="description-header">Lasagne</h4>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-5">
-            <div class="side-pad">
-              <h4 class="description-header">Preparation</h4>
-              <p>
-                Lorem ipsum dolor sit amet, ligula vel arcu in, tempor et ligula est, sapien donec esse elementum gravida amet, nunc ac dictum, donec porta luctus aliquet egestas. Justo posuere dolor eu sit. Porta parturient sodales lectus amet erat etiam, ac quisque
-                lectus magna, proin vel aliquet suscipit numquam, mauris et nec suspendisse cum dignissim mattis, arcu porta orci parturient at elit. Luctus neque quam diam porta nunc. Quisque pellentesque, vel eu eu orci. Velit fringilla rhoncus faucibus,
-                ullamcorper torquent sagittis torquent ut.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-12 col-sm-2">
-            <img class="myimage" src="images/sourdough.jpg" alt="">
-          </div>
-          <div class="col-xs-12 col-sm-5">
-            <div class="side-pad">
-              <h4 class="description-header">Fiorentina</h4>
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-5">
-            <div class="side-pad">
-              <h4 class="description-header">Preparation</h4>
-              <p>
-                Lorem ipsum dolor sit amet, ligula vel arcu in, tempor et ligula est, sapien donec esse elementum gravida amet, nunc ac dictum, donec porta luctus aliquet egestas. Justo posuere dolor eu sit. Porta parturient sodales lectus amet erat etiam, ac quisque
-                lectus magna, proin vel aliquet suscipit numquam, mauris et nec suspendisse cum dignissim mattis, arcu porta orci parturient at elit. Luctus neque quam diam porta nunc. Quisque pellentesque, vel eu eu orci. Velit fringilla rhoncus faucibus,
-                ullamcorper torquent sagittis torquent ut.
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
-
-
+      
     </div>
   </div>
 
@@ -285,8 +227,8 @@
   <script src="js/view/TopBarView.js"></script>
   <script src="js/view/DishSearchView.js"></script>
   <script src="js/view/DishDetailView.js"></script>
-  <script src="js/view/DinnerPrintView.js"></script>
   <script src="js/view/DinnerOverView.js"></script>
+  <script src="js/view/DinnerPrintView.js"></script>
 
 
 
