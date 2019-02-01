@@ -4,6 +4,7 @@ window.onload= function() {
 	
 
 	const frontPageView = new FrontPageView(document.querySelector("#frontPageView"));
+	const frontPageViewController = new FrontPageViewController(frontPageView, model);
 	const sideBarView = new SideBarView(document.querySelector("#sideBarView"), model);
 	const sideBarViewController = new SideBarViewController(sideBarView, model);
 	const topBarView = new TopBarView(document.querySelector("#topBarView"), model);
@@ -24,7 +25,7 @@ window.onload= function() {
 window.screen1 = function() {
 	hideAll()
 	$("#frontPageView").removeAttr('hidden');
-}
+}()
 window.screen2 = function() {
 	hideAll();
 	$("#sideBarView").removeAttr('hidden');
@@ -47,7 +48,6 @@ window.screen6 = function() {
 }
 
 function hideAll() {
-	console.log("hide");
 	$("#sideBarView").attr('hidden', true);
 	$("#frontPageView").attr('hidden', true);
 	$("#topBarView").attr('hidden', true);

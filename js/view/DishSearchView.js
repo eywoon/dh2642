@@ -12,30 +12,42 @@
  * @param {Object} container - references the HTML parent element that contains the view.
  * @param {Object} model - the reference to the Dinner Model
  */
-class DishSearchView {
-  
+
+class DishSearchViewController {
+  constructor(view, model) {
     
-    constructor (container, model) {
-	     this.container=container;
-	     this.model=model;
-       var menu = model.getAllDishes()
-       var dishContainer = $(container).find("#dish-item-container")
-       var self = this;
-       menu.forEach(function(dish) {
-         dishContainer.append(self.itemDetailView(dish));
-       })
-      
-      
+  }
+}
+
+
+
+class DishSearchView {
+
+  constructor(container, model) {
+    this.container = container;
+    this.model = model;
+    var menu = model.getAllDishes()
+    var dishContainer = $(container).find("#dish-item-container")
+    var self = this;
+    menu.forEach(function(dish) {
+      let itemDetail = $(self.itemDetailView(dish));
+      itemDetail.click(function() {
+        self.model.setCurrentSelection(dish.id);
+        window.screen3()
+      })
+      dishContainer.append(itemDetail);
+    })
+
+
   }
   itemDetailView(dish) {
     var html = `
-      <div id='` + dish.id + `'>
+      <div id='dish-` + dish.id + `'>
         <image src='images/` + dish.image + `'></image>
         <p>` + dish.name + `</p>
       </div>
     `;
     return html;
   }
-  
+
 }
- 

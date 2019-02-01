@@ -32,9 +32,7 @@ class TopBarView {
   update(model, changeDetails){
     if(changeDetails === 0) {
       $(this.container).find("#numberOfGuests").html(model.getNumberOfGuests())
-      
-    }
-   
+    } 
   } 
   // in lab 2, the Observer update method will come here
 }

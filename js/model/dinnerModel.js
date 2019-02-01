@@ -31,13 +31,20 @@ class DinnerModel extends Observable{
   constructor(){
     super()
 	  this.dishes=dishesConst; // to be replaced in lab 3
-	  this.amountOfGuests = 0;
+	  this.amountOfGuests = 1;
     this.selectedDishes = [null, null, null];
+    this.currentSelection = 1; 
   }
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 
-
+  setCurrentSelection(id) {
+    this.currentSelection = id;
+    this.notifyObservers(2)
+  }
+  getCurrentSelection() {
+    return this.getDish(this.currentSelection)
+  }
 	setNumberOfGuests(num) {
 		this.amountOfGuests = num;
     this.notifyObservers(0)
@@ -72,9 +79,9 @@ class DinnerModel extends Observable{
 	//Returns all ingredients for all the dishes on the menu.
 	getAllIngredients() {
 	 var ingredients = [];
-    selectedDishes.forEach(function(dish) {
+    this.selectedDishes.forEach(function(dish) {
       if(dish != null) {
-        ingredients.concat(dish.ingredients);
+        ingredients = ingredients.concat(dish.ingredients);
       }
     }) 
     return ingredients;
@@ -82,36 +89,41 @@ class DinnerModel extends Observable{
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	getTotalMenuPrice() {
-		var ingredients = getAllIngredients();
+		var ingredients = this.getAllIngredients();
     var price = 0;
     ingredients.forEach(function(ingredient) {
       price+=ingredient.price;
     })
-    price*=this.numberOfGuests;
+    price*=this.getNumberOfGuests();
     return price;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	addDishToMenu(id) {
-    let dish= getDish(id);
+    let dish= this.getDish(id);
     switch(dish.type) {
       case 'starter':
-        selectedDishes[0] = dish;
+        this.selectedDishes[0] = dish;
         break;
       case 'main dish':
-        selectedDishes[1] = dish;
+        this.selectedDishes[1] = dish;
         break;
       case 'dessert':
-        selectedDishes[2] = dish;
+        this.selectedDishes[2] = dish;
         break;
     }
+    this.notifyObservers(1)
 	}
-
+  
+  
+  getDishPrice(id) {
+    let dish= this.getDish(id);
+    return dish.ingredients.map(a => a.price).reduce((a,b) => (a+b));
+  }
 	//Removes dish from menu
 	removeDishFromMenu(id) {
-    
-    let dish= getDish(id);
+    let dish= this.getDish(id);
     switch(dish.type) {
       case 'starter':
         selectedDishes[0] = null;
@@ -123,6 +135,7 @@ class DinnerModel extends Observable{
         selectedDishes[2] = null;
         break;
     }
+    this.notifyObservers(1)
 	}
 
     
@@ -130,7 +143,7 @@ class DinnerModel extends Observable{
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
 	getAllDishes(type,filter) {
-    console.log(type);
+
     if(type === undefined) {
       return dishesConst
     }
@@ -152,7 +165,7 @@ class DinnerModel extends Observable{
 	  });	
 	}
 	//function that returns a dish of specific ID
-	getDish (id) {
+	getDish(id) {
 	    for(let dsh of this.dishes){
 		if(dsh.id == id) {
 		    return dsh;

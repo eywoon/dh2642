@@ -25,31 +25,19 @@ main{
 	padding:4em 0em 2em 0em;
 }
 
-.main-container {
-	
-}
 
 header{
 	padding:2em 0em 2em 0em;
 	background-color: rgb(223,223,223);
 }
 
-img {
-}
 hr {
 	border: none;
 	border-bottom: 1px solid black;
 }
-table {
-
-}
-td {
-}
 
 button {
 	white-space: nowrap; 
-}
-.bottom-container {
 }
 
 .dinner-planner {
@@ -63,7 +51,7 @@ button {
 div.nopadding {
 	padding: 0 0 0 0;
 }
-.ingredients {
+#ingredient-list {
 	width: 100%;
 	padding: 5% 5% 5% 5%;
 	border: 3px solid;
@@ -83,41 +71,52 @@ div.nopadding {
 	margin:3% 0 3% 0;
 }
 
-#button-text{
+#create-dinner-button{
 	font-size: 1.5em;
-	padding-top:0.5em;
 }
-
-
-
-.cart-container {
-	display: table;
-	width: 100%;
-	border-top: 3px solid black;
-}
-.cart-header-container {
-	display: table-row; 
-	background-color: rgb(223,223,223);
-}
-.cart-header-data {
-	display: table-cell;
-	padding-left: 5%;
-	border-bottom: 3px solid black;
-	
-}
-
 #dinner-text{
 	font-size: 1.5em;
 	height: 10px;
 	white-space: nowrap;
 }
-.cart-data-container {
-		
-		display: table-row; 
+
+#cart-container {
+	display: table;
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0 5px;
 }
-.cart-data {
+.cart-header-row {
+	display: table-row; 
+	background-color: #c0c0c0;
+	
+}
+.cart-header-cell {
 	display: table-cell;
-	padding: 5% 5% 5% 5%;
+	border-bottom: 3px solid black;
+	border-top: 3px solid black;
+}
+.cart-header-cell:first-child {
+	padding-left: 5%;
+}
+
+.cart-data-row {
+		display: table-row; 
+		background-color: rgb(223,223,223);
+		outline: thin solid;
+}
+.cart-cell {
+	display: table-cell;
+	padding-top: 2%;
+}
+.pad {
+	padding-top: 5%;
+	padding-bottom: 2%;
+}
+
+#total-price-container {
+	display: table-row; 
+	color: #722f37;
 }
 .menu{
 	min-height: 100%;
@@ -125,10 +124,6 @@ div.nopadding {
 	width: 100%;
 	padding-left: 0 !important;
 	padding-right: 0 !important;
-}
-.middle {
-	position: relative;
-	z-index: 5;
 }
 
 .center {
@@ -138,10 +133,6 @@ div.nopadding {
 
 .right {
 	float:right;
-}
-.mini-menu {
-	border-bottom: 3px solid black;
-	padding: 1em 1em 1em 1em;
 }
 .right-sticky {
 	padding: 1% 0 1% 0;
@@ -167,41 +158,6 @@ div.nopadding {
   width:100%;
 }
 
-/* #dish-1{
-	background-image: url(images/toast.jpg);
-}
-
-#dish-2{
-	background-image: url(images/sourdough.jpg);
-}
-
-#dish-3{
-	background-image: url(images/bakedbrie.jpg);
-}
-
-#dish-100{
-	background-image: url(images/meatballs.jpg);
-}
-
-#dish-101{
-	background-image: url(images/bakedbrie.jpg);
-}
-#dish-102{
-	background-image: url(images/meatballs.jpg);
-}
-#dish-103{
-	background-image: url(images/meatballs.jpg);
-}
-#dish-200{
-	background-image: url(images/icecream.jpg);
-}
-#dish-201{
-	background-image: url(images/icecream.jpg);
-}
-#dish-202{
-	background-image: url(images/icecream.jpg);
-} */
-
 @media only screen and (max-width: 600px) {
   .boxes{
   	width: 300px;
@@ -219,16 +175,6 @@ div.nopadding {
   padding-top:0;
 }
 
-.box-container {
-	
-}
-.content {
-	margin: 1em 1em 1em 1em;
-}
-
-.imageContainer {
-	border: 1px solid black;
-}
 .myimage {
 	height: 100px;
 	width: 100px;
@@ -236,10 +182,6 @@ div.nopadding {
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
-}
-.inline {
-	margin: 2em 2em 2em 2em;
-	float: left;
 }
 .recipe-description {
 	float: left;
@@ -260,7 +202,7 @@ h1, h2, h3, h4 {
 	padding-left: 2em;
 	padding-right: 2em;
 }
-.dish-description {
+.dish {
 	padding: 5% 0% 5% 0%
 }
 .fill-height {
@@ -274,7 +216,7 @@ h1, h2, h3, h4 {
   #title-text{
   	font-size: 2em;
   }
-	.ingredients {
+	#ingredient-list {
 		border: none;
 	}
 	.right-sticky {
