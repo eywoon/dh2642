@@ -14,16 +14,12 @@
  */
  
  class SideBarViewController{
- constructor(view, model) {
+ constructor(view, model, gsc) {
     view.expandButton.click(() => {
       view.expand.toggleClass("d-sm-block").toggleClass("d-none");
       if(view.expand.hasClass("d-sm-block")) {
-        console.log("hide");
         view.sideBarMobilePrice.show();
-        console.log(view.sideBarMobilePrice);
       } else {
-        console.log("show");
-        console.log(view.sideBarMobilePrice);
         view.sideBarMobilePrice.hide();
       }
     })
@@ -31,7 +27,7 @@
     view.numberOfGuestsSelect.change(() => model.setNumberOfGuests(Number(view.numberOfGuestsSelect.find(":selected").text())))
     view.confirmButton.click(()=> {
       if(!model.isMenuEmpty()) {
-        window.screen5()
+        gsc.screen5()
       }  
     })
   }
@@ -65,12 +61,11 @@ class SideBarView {
         }
         this.cart.find('.cart-data').remove()
         let menu = model.getFullMenu();
-        let self = this;
         menu.forEach(function(dish) {
           if(dish !== null) {
-            self.totalPriceContainer.before(self.cartItem(dish))
+            this.totalPriceContainer.before(this.cartItem(dish))
           }
-        })
+        }.bind(this))
         var price = this.model.getTotalMenuPrice();
         this.totalPriceTag.html(price);
         
@@ -80,13 +75,12 @@ class SideBarView {
     
     cartItem(dish) {
       var price = this.model.getDishPrice(dish.id)*this.model.getNumberOfGuests();
-      var html = `
+      return `
         <div class="cart-data-row cart-data">
           <p class="cart-cell">`+dish.name +`</p>
           <p class="cart-cell">`+ price +`</p>
         </div>
       `;
-      return html;
     } 
   
     // in lab 2, the Observer update method will come here

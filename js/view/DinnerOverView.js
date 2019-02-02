@@ -1,10 +1,10 @@
 
 class DinnerOverViewController {
-  constructor(view, model) {
+  constructor(view, model, gsc) {
     this.view = view;
     this.model = model;
     view.printButton.click(() => {
-      window.screen6()
+      gsc.screen6()
     })
   }
 }
@@ -34,16 +34,14 @@ class DinnerOverView {
       }
     }
     itemDishView(dish, first) {
-      let offset = "";
       let price = this.model.getDishPrice(dish.id)*this.model.getNumberOfGuests();
-      let html = `
+      return `
       <div class="col-xs-12 col-sm-3 dish-item">
         <image src='images/`+dish.image+`'></image>
         <p class="dish-name">`+dish.name+`</p>
         <p class="dish-price">`+price+`</p>
       </div>
       `;
-      return html;
     }
     
     // in lab 2, the Observer update method will come here

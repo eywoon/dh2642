@@ -24,7 +24,7 @@ class DinnerPrintView {
   getDishView(dish) {
     return (
       `
-    <div class="row">
+    <div class="row margin-bottom">
       <div class="col-xs-12 col-sm-2">
         <img class="myimage" src="images/`+dish.image+`" alt="">
       </div>

@@ -1,7 +1,7 @@
 
  class TopBarViewController{
- constructor(view, model) {
-    view.returnButton.click(() => window.screen2())
+ constructor(view, model, gsc) {
+    view.returnButton.click(() => gsc.screen2())
   }
 }
  
