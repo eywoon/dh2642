@@ -14,9 +14,10 @@
  */
 
 class DishSearchViewController {
-  constructor(view, model) {
+  constructor(view, model, gsc) {
     this.view = view;
     this.model = model;
+    this.gsc = gsc;
     view.typeSelect.change(this.renderDishes.bind(this));
     view.searchButton.click(this.renderDishes.bind(this))
     view.searchInput.keypress(function(e) {
@@ -37,7 +38,7 @@ class DishSearchViewController {
       let itemDetail = $(this.view.itemDetailView(dish));
       itemDetail.click(function() {
         this.model.setCurrentSelection(dish.id);
-        window.screen3()
+        this.gsc.screen3()
       }.bind(this));
       this.view.dishContainer.append(itemDetail);
     }.bind(this))

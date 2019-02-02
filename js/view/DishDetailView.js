@@ -1,9 +1,9 @@
 class DishDetailViewController {
-  constructor(view, model) {
-    view.backButton.click(() => window.screen2())
+  constructor(view, model, gsc) {
+    view.backButton.click(() => gsc.screen2())
     view.addButton.click(() => {
       model.addSelectionToMenu()
-      window.screen2();
+      gsc.screen2();
     });
   }
 }
@@ -30,11 +30,10 @@ class DishDetailView {
     switch (changeDetails) {
       case 0:
         this.numberOfGuests.html(guests)
-        var self = this;
         $(this.container).find(".recipe-data").remove();
         dish.ingredients.forEach(function(ingredient) {
-        self.tablePointer.after(self.tableRow(ingredient, guests));
-        })
+        this.tablePointer.after(this.tableRow(ingredient, guests));
+      }.bind(this))
         this.totalPriceTag.html(model.getDishPrice(dish.id)* guests);
       break;
       case 2:
@@ -43,10 +42,9 @@ class DishDetailView {
         this.dishDescription.html(dish.description);
         this.numberOfGuests.html(guests)
         $(this.container).find(".recipe-data").remove();
-        var self = this;
         dish.ingredients.forEach(function(ingredient) {
-        self.tablePointer.after(self.tableRow(ingredient, guests));
-        })
+          this.tablePointer.after(this.tableRow(ingredient, guests));
+        }.bind(this))
         this.totalPriceTag.html(model.getDishPrice(dish.id)* guests);
         break;
     }
