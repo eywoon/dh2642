@@ -68,8 +68,8 @@ class DishSearchView {
 
   itemDetailView(dish) {
     let html = `
-      <div class="col-xs-12 col-sm-3 dish-item" id='dish-` + dish.id + `'>
-        <image src='images/` + dish.image + `'></image>
+      <div class="col-xs-12 col-sm-4 col-md-3 dish-item" id='dish-` + dish.id + `'>
+        <img class="dish-image" src='images/` + dish.image + `'></img>
         <p class="dish-name">` + dish.name + `</p>
       </div>
     `;
