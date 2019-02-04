@@ -18,8 +18,13 @@ class DishSearchViewController {
     this.view = view;
     this.model = model;
     this.gsc = gsc;
-    view.typeSelect.change(this.renderDishes.bind(this));
-    view.searchButton.click(this.renderDishes.bind(this))
+    let parent = this;
+    view.dishContainer.on('click', '.dish-image, dish-name', function(evt){
+      this.model.setCurrentSelection($(evt.target).parent().attr('id').split("-")[1]);
+      this.gsc.screen3()
+    }.bind(this));
+    view.typeSelect.change(view.renderDishes.bind(view));
+    view.searchButton.click(view.renderDishes.bind(view));
     view.searchInput.keypress(function(e) {
       if (e.which == 13) {
         this.view.searchButton.click();
@@ -29,20 +34,7 @@ class DishSearchViewController {
     view.typeSelect.change();
   }
 
-  renderDishes() {
-    let option = this.view.typeSelect.val();
-    let filter = this.view.searchInput.val();
-    let dishes = this.model.getAllDishes(option, filter);
-    this.view.dishContainer.empty();
-    dishes.forEach(function(dish) {
-      let itemDetail = $(this.view.itemDetailView(dish));
-      itemDetail.click(function() {
-        this.model.setCurrentSelection(dish.id);
-        this.gsc.screen3()
-      }.bind(this));
-      this.view.dishContainer.append(itemDetail);
-    }.bind(this))
-  }
+  
 }
 
 
@@ -68,12 +60,23 @@ class DishSearchView {
 
   itemDetailView(dish) {
     let html = `
-      <div class="col-xs-12 col-sm-4 col-md-3 dish-item" id='dish-` + dish.id + `'>
-        <img class="dish-image" src='images/` + dish.image + `'></img>
-        <p class="dish-name">` + dish.name + `</p>
+      <div class="col-xs-12 col-sm-4 col-md-3 dish-item" id='dish-${dish.id}'>
+        <img class="dish-image" src='images/${dish.image}'></img>
+        <p class="dish-name">${dish.name}</p>
       </div>
     `;
     return html;
+  }
+  
+  renderDishes() {
+    let option = this.typeSelect.val();
+    let filter = this.searchInput.val();
+    let dishes = this.model.getAllDishes(option, filter);
+    this.dishContainer.empty();
+    dishes.forEach(function(dish) {
+      let itemDetail = $(this.itemDetailView(dish));
+      this.dishContainer.append(itemDetail);
+    }.bind(this))
   }
 
 }

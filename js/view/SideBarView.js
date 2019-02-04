@@ -77,8 +77,8 @@ class SideBarView {
       var price = this.model.getDishPrice(dish.id)*this.model.getNumberOfGuests();
       return `
         <div class="cart-data-row cart-data">
-          <p class="cart-cell">`+dish.name +`</p>
-          <p class="cart-cell">`+ price +`</p>
+          <p class="cart-cell">${dish.name}</p>
+          <p class="cart-cell">${price}</p>
         </div>
       `;
     } 
