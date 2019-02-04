@@ -47,7 +47,6 @@ class DinnerModel extends Observable {
     })
     return selections;
   }
-  
   isMenuEmpty() {
     let empty = true;
     this.selectedDishes.forEach(function(selection) {
@@ -145,6 +144,7 @@ class DinnerModel extends Observable {
   //you can use the filter argument to filter out the dish by name or ingredient (use for search)
   //if you don't pass any filter all the dishes will be returned
   getAllDishes(type, filter) {
+    filter = filter.toUpperCase();
     if (type === "" && filter === "") {
       return this.dishes;
     }
@@ -153,11 +153,11 @@ class DinnerModel extends Observable {
       if (filter) {
         found = false;
         dish.ingredients.forEach(function(ingredient) {
-          if (ingredient.name.indexOf(filter) != -1) {
+          if (ingredient.name.toUpperCase().indexOf(filter) != -1) {
             found = true;
           }
         });
-        if (dish.name.indexOf(filter) != -1) {
+        if (dish.name.toUpperCase().indexOf(filter) != -1) {
           found = true;
         }
       }

@@ -26,12 +26,12 @@ class DinnerPrintView {
       `
     <div class="row margin-bottom">
       <div class="col-xs-12 col-sm-2">
-        <img class="myimage" src="images/`+dish.image+`" alt="">
+        <img class="myimage" src="images/${dish.image}" alt="">
       </div>
       <div class="col-xs-12 col-sm-5">
         <div class="side-pad">
-          <h4 class="description-header">`+dish.name+`</h4>
-          <p>`+dish.description+`</p>
+          <h4 class="description-header">${dish.name}</h4>
+          <p>${dish.description}</p>
         </div>
       </div>
       <div class="col-xs-12 col-sm-5">

@@ -54,10 +54,10 @@ class DishDetailView {
     price *= guests;
     var html =`
       <tr class="recipe-data">
-        <td>`+ ingredient.quantity*guests + " "+ ingredient.unit +`</td>
-        <td>`+ ingredient.name +`</td>
+        <td>${ingredient.quantity*guests + " " + ingredient.unit}</td>
+        <td>${ingredient.unit}</td>
         <td>SEK</td>
-        <td>`+ price +`</td>
+        <td>${price}</td>
       </tr>
     `;
     return html;

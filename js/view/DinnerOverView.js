@@ -37,9 +37,9 @@ class DinnerOverView {
       let price = this.model.getDishPrice(dish.id)*this.model.getNumberOfGuests();
       return `
       <div class="col-xs-12 col-sm-3 dish-item-print">
-        <image class="dish-image" src='images/`+dish.image+`'></image>
-        <p class="dish-name">`+dish.name+`</p>
-        <p class="dish-price">`+price+`</p>
+        <image class="dish-image" src='images/${dish.image}'></image>
+        <p class="dish-name">${dish.name}</p>
+        <p class="dish-price">${price}</p>
       </div>
       `;
     }
