@@ -9,7 +9,7 @@ class Observable {
 
   notifyObservers(changeDetails) {
     for (var i = 0; i < this._observers.length; i++) {
-      this._observers[i].update(this, changeDetails);
+      this._observers[i].update(this, changeDetails); //calls upon Views update method
     }
   }
 
@@ -22,7 +22,19 @@ class Observable {
   }
 }
 
+/*
+* Model data should be encapsulated and not accessible outside the model, only through methods
+* Model implements business logic/application logic
+*
+* */
 
+/*
+* Views are passive and never change data. Model needs to inform views on updates
+* But we don't want coupling between the classes
+* To acheive that each model will give the view a callback that functions similarily to an event listener
+* View are called observers and model is observable
+*
+* */
 
 
 //DinnerModel Object constructor
@@ -31,7 +43,7 @@ class DinnerModel extends Observable {
     super()
     this.dishes = dishesConst; // to be replaced in lab 3
     this.amountOfGuests = 1;
-    this.selectedDishes = [null, null, null];
+    this.selectedDishes = [null, null, null]; //Can only select 3 dishes per menu
     this.currentSelection = 1;
     this.types = ['starter', 'main dish', 'dessert'];
   }

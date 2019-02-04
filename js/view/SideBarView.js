@@ -12,41 +12,51 @@
  * @param {Object} container - references the HTML parent element that contains the view.
  * @param {Object} model - the reference to the Dinner Model
  */
- 
- class SideBarViewController{
- constructor(view, model, gsc) {
-    view.expandButton.click(() => {
-      view.expand.toggleClass("d-sm-block").toggleClass("d-none");
-      if(view.expand.hasClass("d-sm-block")) {
-        view.sideBarMobilePrice.show();
-      } else {
-        view.sideBarMobilePrice.hide();
-      }
-    })
-    
-    view.numberOfGuestsSelect.change(() => model.setNumberOfGuests(Number(view.numberOfGuestsSelect.find(":selected").text())))
-    view.confirmButton.click(()=> {
-      if(!model.isMenuEmpty()) {
-        gsc.screen5()
-      }  
-    })
-  }
-}
+//
+//  class SideBarViewController{
+//  constructor(view, model, gsc) {
+//     view.expandButton.click(() => {
+//       view.expand.toggleClass("d-sm-block").toggleClass("d-none");
+//       if(view.expand.hasClass("d-sm-block")) {
+//         view.sideBarMobilePrice.show();
+//       } else {
+//         view.sideBarMobilePrice.hide();
+//       }
+//     })
+//
+//     view.numberOfGuestsSelect.change(() => model.setNumberOfGuests(Number(view.numberOfGuestsSelect.find(":selected").text())))
+//     view.confirmButton.click(()=> {
+//       if(!model.isMenuEmpty()) {
+//         gsc.screen5()
+//       }
+//     })
+//   }
+// }
  
  
 class SideBarView {
     constructor (container, model) {
-	    this.container=container;
+        this.container=container;
 	    this.model=model;
-	    this.numberOfGuestsSelect = $(container).find("#numberOfGuestsSelect");
-      this.expandButton = $(container).find("#expand-button");
-      this.expand = $(container).find(".hide");
-      this.cart = $(container).find("#cart-container");
-      this.totalPriceContainer = $(container).find("#total-price-container");
-      this.totalPriceTag = $(container).find("#total-price-tag");
-      this.confirmButton = $(container).find("#confirm-button");
-      this.sideBarMobilePrice = $(container).find(".sidebar-price");
-      model.addObserver(this);
+	    this.name = "LOL";
+	    //this.numberOfGuestsSelect = $(container).find("#numberOfGuestsSelect");
+        this.numberOfGuestsSelect = document.getElementById('numberOfGuestsSelect');
+       // this.expandButton = $(container).find("#expand-button");
+        this.expandButton = document.getElementById('#expand-button');
+       // this.expand = $(container).find(".hide");
+        this.expand = document.getElementsByClassName('hide');
+        //this.cart = $(container).find("#cart-container");
+        this.cart = document.getElementsByClassName('cart-container');
+        //this.totalPriceContainer = $(container).find("#total-price-container");
+        this.totalPriceContainer = document.getElementById('total-price-container');
+
+       // this.totalPriceTag = $(contasiner).find("#total-price-tag");
+        this.totalPriceTag = document.getElementById('total-price-tag');
+       // this.confirmButton = $(container).find("#confirm-button");
+        this.confirmButotn = document.getElementById('confirm-button');
+        //this.sideBarMobilePrice = $(container).find(".sidebar-price");
+        this.sideBarMobilePrice = document.getElementsByClassName('sidebar-price');
+        model.addObserver(this);
     }
     
     update(model, changeDetails){

@@ -16,7 +16,7 @@ class DinnerOverView {
        this.printButton = $(container).find("#print-button");
        this.menuContainer = $(container).find("#selected-menu")
        this.totalPriceTag = $(container).find("#totalPriceTag");
-       model.addObserver(this);
+       model.addObserver(this); //Have a reference from observer to subject
 
     }
     update(model, changeDetails){
