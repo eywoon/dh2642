@@ -1,9 +1,3 @@
-class DinnerPrintViewController {
-  constructor(view, model) {
-
-  }
-}
-
 class DinnerPrintView {
   constructor(container, model) {
     this.container = container;

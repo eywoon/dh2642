@@ -1,10 +1,3 @@
-
- class TopBarViewController{
- constructor(view, model, gsc) {
-    view.returnButton.click(() => gsc.screen2())
-  }
-}
- 
 class TopBarView {
   constructor (container, model) {
      this.container=container;

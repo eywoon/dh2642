@@ -1,14 +1,3 @@
-
-class DinnerOverViewController {
-  constructor(view, model, gsc) {
-    this.view = view;
-    this.model = model;
-    view.printButton.click(() => {
-      gsc.screen6()
-    })
-  }
-}
-
 class DinnerOverView {
     constructor (container, model) {
 	     this.container=container;

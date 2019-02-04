@@ -1,13 +1,3 @@
-class DishDetailViewController {
-  constructor(view, model, gsc) {
-    view.backButton.click(() => gsc.screen2())
-    view.addButton.click(() => {
-      model.addSelectionToMenu()
-      gsc.screen2();
-    });
-  }
-}
-
 class DishDetailView {
   constructor(container, model) {
     this.container = container;
