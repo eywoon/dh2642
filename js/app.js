@@ -20,33 +20,33 @@ class GeneralStateController {
 		const dinnerOverViewController = new DinnerOverViewController(dinnerOverView, model, this);
 		const dinnerPrintView = new DinnerPrintView(document.querySelector("#dinnerPrintView"), model);
 		const dinnerPrintViewController = new DinnerPrintViewController(dinnerPrintView, model);
-		this.screen1();
+		this.renderFrontPage()
 	}
 	
-	screen1() {
+	renderFrontPage() {
 		this.hideAll()
 		$("#frontPageView").removeAttr('hidden');
 	}
 	
-	screen2() {
+	renderDishSearch() {
 		this.hideAll()
 		$("#sideBarView").removeAttr('hidden');
 		$("#dishSearchView").removeAttr('hidden');
 	}
 	
-	screen3() {
+	renderDishDetail() {
 		this.hideAll()
 		$("#sideBarView").removeAttr('hidden');
 		$("#dishDetailView").removeAttr('hidden');
 	}
 	
-	screen5() {
+	renderDinnerView() {
 		this.hideAll()
 		$("#topBarView").removeAttr('hidden');
 		$("#dinnerOverView").removeAttr('hidden');
 	}
 	
-	screen6() {
+	renderDinnerPrint() {
 		this.hideAll()
 		$("#topBarView").removeAttr('hidden');
 		$("#dinnerPrintView").removeAttr('hidden');

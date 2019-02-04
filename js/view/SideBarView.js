@@ -1,39 +1,3 @@
-/** ExampleView Object constructor
- * 
- * This object represents one specific view (in this case the Example view). 
- * 
- * It is responsible for:
- * - constructing the view (e.g. if you need to create some HTML elements procedurally) 
- * - populating the view with the data
- * - updating the view when the data changes
- * 
- * You should create a view class like this for every view in your UI.
- * 
- * @param {Object} container - references the HTML parent element that contains the view.
- * @param {Object} model - the reference to the Dinner Model
- */
- 
- class SideBarViewController{
- constructor(view, model, gsc) {
-    view.expandButton.click(() => {
-      view.expand.toggleClass("d-sm-block").toggleClass("d-none");
-      if(view.expand.hasClass("d-sm-block")) {
-        view.sideBarMobilePrice.show();
-      } else {
-        view.sideBarMobilePrice.hide();
-      }
-    })
-    
-    view.numberOfGuestsSelect.change(() => model.setNumberOfGuests(Number(view.numberOfGuestsSelect.find(":selected").text())))
-    view.confirmButton.click(()=> {
-      if(!model.isMenuEmpty()) {
-        gsc.screen5()
-      }  
-    })
-  }
-}
- 
- 
 class SideBarView {
     constructor (container, model) {
 	    this.container=container;
@@ -51,7 +15,6 @@ class SideBarView {
     
     update(model, changeDetails){
       if(changeDetails !== 2) { //do for both changes to guestnumber and changes to menu a lil hack
-          console.log("update");
         if(model.isMenuEmpty()) {
           this.confirmButton.addClass("blur");
           this.sideBarMobilePrice.html("");
