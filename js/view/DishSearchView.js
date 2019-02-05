@@ -30,7 +30,14 @@ class DishSearchView {
   renderDishes() {
     let option = this.typeSelect.val();
     let filter = this.searchInput.val();
-    let dishes = this.model.getAllDishes(option, filter);
+    let dishes = [];
+    let dishesPromise = this.model.getAllDishes(option, filter).then(function(dishes){
+      this.dishes = dishes;
+      console.log(dishes);
+      console.log(dishes[0].title);
+    }.bind(this));
+  //  let dishes = dishesPromise.PromiseValue
+    //console.log(dishes);
     this.dishContainer.empty();
     dishes.forEach(function(dish) {
       let itemDetail = $(this.itemDetailView(dish));
