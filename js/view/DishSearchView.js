@@ -20,8 +20,8 @@ class DishSearchView {
   itemDetailView(dish) {
     let html = `
       <div class="col-xs-12 col-sm-4 col-md-3 dish-item" id='dish-${dish.id}'>
-        <img class="dish-image" src='images/${dish.image}'></img>
-        <p class="dish-name">${dish.name}</p>
+        <img class="dish-image" src='${dish.imageL}'></img>
+        <p class="dish-name">${dish.title}</p>
       </div>
     `;
     return html;
@@ -34,15 +34,16 @@ class DishSearchView {
     let dishesPromise = this.model.getAllDishes(option, filter).then(function(dishes){
       this.dishes = dishes;
       console.log(dishes);
-      console.log(dishes[0].title);
+      console.log(dishes[5].title);
+      dishes.forEach(function(dish) {
+        console.log(dish);
+        let itemDetail = $(this.itemDetailView(dish));
+        this.dishContainer.append(itemDetail);
+      }.bind(this))
     }.bind(this));
-  //  let dishes = dishesPromise.PromiseValue
-    //console.log(dishes);
+
     this.dishContainer.empty();
-    dishes.forEach(function(dish) {
-      let itemDetail = $(this.itemDetailView(dish));
-      this.dishContainer.append(itemDetail);
-    }.bind(this))
+
   }
 
 }
