@@ -14,15 +14,24 @@ class SideBarView {
     }
     
     update(model, changeDetails){
+      switch(changeDetails) {
+        case 0:
+        break;
+        case 1:
+          if(model.isMenuEmpty()) {
+            this.confirmButton.addClass("blur");
+            this.sideBarMobilePrice.html("");
+          } else {
+            this.confirmButton.removeClass("blur");
+            this.sideBarMobilePrice.html("TODO"+ " SEK");
+          }
+          this.cart.find('.cart-data').remove()
+          
+        break;
+      }
       if(changeDetails !== 2) { //do for both changes to guestnumber and changes to menu a lil hack
-        if(model.isMenuEmpty()) {
-          this.confirmButton.addClass("blur");
-          this.sideBarMobilePrice.html("");
-        } else {
-          this.confirmButton.removeClass("blur");
-          this.sideBarMobilePrice.html(model.getTotalMenuPrice()+ " SEK");
-        }
-        this.cart.find('.cart-data').remove()
+        
+        
         let menu = model.getFullMenu();
         menu.forEach(function(dish) {
           if(dish !== null) {

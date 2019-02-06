@@ -7,7 +7,8 @@ class DishDetailView {
     this.dishDescription = $(container).find("#dish-description");
     this.dishPreparation = $(container).find("#dish-preparation");
     this.numberOfGuests = $(container).find("#numberOfGuests");
-    this.tablePointer = $(container).find("thead");
+    this.tableEntryPoint = $(container).find("thead");
+    this.table = $(container).find("#ingredient-list");
     this.totalPriceTag = $(container).find("#totalPriceTag");
     this.addButton = $(container).find("#add-button");
     this.backButton = $(container).find("#back-button");
@@ -15,39 +16,54 @@ class DishDetailView {
   }
 
   update(model, changeDetails) {
-    let dish = this.model.getCurrentSelection();
     let guests = this.model.getNumberOfGuests();
     switch (changeDetails) {
       case 0:
         this.numberOfGuests.html(guests)
-        $(this.container).find(".recipe-data").remove();
-        dish.ingredients.forEach(function(ingredient) {
-        this.tablePointer.after(this.tableRow(ingredient, guests));
-      }.bind(this))
-        this.totalPriceTag.html(model.getDishPrice(dish.id)* guests);
-      break;
+        this.table.find('.variable-td').each((i, e) => {
+          if (e.hasAttribute("data-single-amount")) {
+            e.innerHTML = e.getAttribute("data-single-amount") * guests
+          } else {
+            e.innerHTML = guests;
+          }
+        })
+        this.totalPriceTag.html("TODO");
+        break;
       case 2:
-        this.dishName.html(dish.name);
-        this.dishImage.attr("src", "images/" + dish.image);
-        this.dishDescription.html(dish.description);
-        this.numberOfGuests.html(guests)
-        $(this.container).find(".recipe-data").remove();
-        dish.ingredients.forEach(function(ingredient) {
-          this.tablePointer.after(this.tableRow(ingredient, guests));
-        }.bind(this))
-        this.totalPriceTag.html(model.getDishPrice(dish.id)* guests);
+        let dish = this.model.getCurrentSelection()
+        this.model.getDish(dish.id).then(res => {
+          res[0].then(dish => {
+            console.log(dish);
+            this.dishName.html(dish.title);
+            this.dishImage.attr("src", dish.image);
+            this.numberOfGuests.html(guests)
+            $(this.container).find(".recipe-data").remove();
+            dish.extendedIngredients.forEach(ingredient => {
+              this.tableEntryPoint.after(this.tableRow(ingredient, guests));
+            }.bind(this))
+          })
+          res[1].then(dish=> {
+            this.dishDescription.html(dish.summary);
+          }).then("all done")
+          
+        })
+        
+        this.totalPriceTag.html("TODO");
+
+
         break;
     }
   }
+
   tableRow(ingredient, guests) {
-    var price = ingredient.price;
-    price *= guests;
-    var html =`
+    let price = 1;
+    var html = `
       <tr class="recipe-data">
-        <td>${ingredient.quantity*guests + " " + ingredient.unit}</td>
+        <td class="variable-td" data-single-amount=${ingredient.amount}>${ingredient.amount}</td>
+        <td>${ingredient.unit}</td>
         <td>${ingredient.name}</td>
         <td>SEK</td>
-        <td>${price}</td>
+        <td class="variable-td">${guests}</td>
       </tr>
     `;
     return html;
