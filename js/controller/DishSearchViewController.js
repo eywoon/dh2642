@@ -17,4 +17,18 @@ class DishSearchViewController {
     }.bind(this));
     view.typeSelect.change();
   }
+  
+  renderDishes() {
+    let option = this.view.typeSelect.val();
+    let filter = this.view.searchInput.val();
+    let dishes = [];
+    this.model.getAllDishes(option, filter).then((result) => {
+      this.view.dishContainer.empty();
+      result.forEach(function(dish) {
+        let itemDetail = new ItemDetailView(this.view.dishContainer, this.model, dish);
+        let itemDetailController = new ItemDetailViewController(itemDetail, this.model, this.generalController)
+        //console.log(this);
+      }.bind(this))
+    })
+  }
 }

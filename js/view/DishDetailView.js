@@ -38,10 +38,12 @@ class DishDetailView {
             this.dishImage.attr("src", dish.image);
             this.numberOfGuests.html(guests)
             $(this.container).find(".recipe-data").remove();
-            dish.extendedIngredients.forEach(ingredient => {
+    
+            dish.extendedIngredients.forEach((ingredient) => {
               this.tableEntryPoint.after(this.tableRow(ingredient, guests));
-            }.bind(this))
+            })
           })
+          
           res[1].then(dish=> {
             this.dishDescription.html(dish.summary);
           }).then("all done")
@@ -49,8 +51,6 @@ class DishDetailView {
         })
         
         this.totalPriceTag.html("TODO");
-
-
         break;
     }
   }

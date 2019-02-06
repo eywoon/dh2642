@@ -12,7 +12,7 @@ class GeneralStateController {
 		const sideBarViewController = new SideBarViewController(sideBarView, model, this);
 		const topBarView = new TopBarView(document.querySelector("#topBarView"), model);
 		const topBarViewController = new TopBarViewController(topBarView, model, this);
-		const dishSearchView = new DishSearchView(document.querySelector("#dishSearchView"), model);
+		const dishSearchView = new DishSearchView(document.querySelector("#dishSearchView"), model, this);
 		const dishSearchViewController = new DishSearchViewController(dishSearchView, model, this);
 		const dishDetailView = new DishDetailView(document.querySelector("#dishDetailView"), model);
 		const dishDetailViewController = new DishDetailViewController(dishDetailView, model, this);

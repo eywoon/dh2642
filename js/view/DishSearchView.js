@@ -4,6 +4,7 @@
 class DishSearchView {
 
   constructor(container, model, generalController) {
+    console.log(generalController);
     this.generalController = generalController;
     this.container = container;
     this.model = model;
@@ -20,18 +21,4 @@ class DishSearchView {
     }.bind(this));
 
   }
-  
-  renderDishes() {
-    let option = this.typeSelect.val();
-    let filter = this.searchInput.val();
-    let dishes = [];
-    this.model.getAllDishes(option, filter).then((result) => {
-      this.dishContainer.empty();
-      result.forEach(function(dish) {
-        let itemDetail = new ItemDetailView(this.dishContainer, this.model, dish);
-        let itemDetailController = new ItemDetailViewController(itemDetail, this.model, this.generalController)
-      }.bind(this))
-    })
-  }
-
 }
