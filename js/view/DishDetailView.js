@@ -55,6 +55,9 @@ class DishDetailView {
           }
           this.totalPriceTag.html(res[0].extendedIngredients.length * guests);
           body.removeClass("loading");
+        }).catch(error => {
+          body.removeClass("loading");
+          alert("Network failure, please try again later!")
         })
 
         break;

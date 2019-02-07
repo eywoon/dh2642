@@ -10,16 +10,18 @@ class DishSearchViewController {
         this.view.searchButton.click();
       }
     }.bind(this));
-    this.renderDishes()
+    this.renderDishes(false)
     
   }
   
-  renderDishes() {
+  renderDishes(first) {
     let type = this.view.typeSelect.val();
     let filter = this.view.searchInput.val();
     let dishes = [];
     let body = $("body");
-    body.addClass("loading");
+    if(first) {
+      body.addClass("loading");
+    }
     this.model.getAllDishes(type, filter).then((result) => {
       this.view.dishContainer.empty();
       result.forEach(dish => {
@@ -27,6 +29,9 @@ class DishSearchViewController {
         let itemDetailController = new ItemDetailViewController(itemDetail, this.model, this.generalController)
       })
       body.removeClass("loading");
-    }).catch(error => console.log(error))
+    }).catch(error => { 
+      body.removeClass("loading");
+      alert("Network failure, please try again later!");
+    })
   }
 }
