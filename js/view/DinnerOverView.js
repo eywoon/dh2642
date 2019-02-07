@@ -12,23 +12,22 @@ class DinnerOverView {
       if(changeDetails !== 2) {
         this.menuContainer.empty();
         let dishes = model.getFullMenu();
-        dishes.forEach(function(dish) {
-          if(dish !== null) {
+        dishes.forEach(dish => {
               this.menuContainer.append(this.itemDishView(dish));
-          }
-        }.bind(this))
-        let numberOfSelections = model.getNumberOfSelections();
+        })
+        //let numberOfSelections = model.getNumberOfSelections();
         //this.menuContainer.children().first().addClass('offset-sm-' + (3 + (3-numberOfSelections)*2))
         this.totalPriceTag.html(model.getTotalMenuPrice());
       }
     }
-    itemDishView(dish, first) {
-      let price = this.model.getDishPrice(dish.id)*this.model.getNumberOfGuests();
+    
+    itemDishView(dish) {
+      let price = dish.extendedIngredients.length*this.model.getNumberOfGuests();
       return `
       <div class="col-xs-12 col-sm-3 dish-item-print">
-        <image class="dish-image" src='images/${dish.image}'></image>
-        <p class="dish-name">${dish.name}</p>
-        <p class="dish-price">${price}</p>
+        <image class="dish-image" src='${dish.image}'></image>
+        <p class="dish-name">${dish.title}</p>
+        <p data-single-amount="${dish.extendedIngredients.length}" class="variable dish-price">${price}</p>
       </div>
       `;
     }

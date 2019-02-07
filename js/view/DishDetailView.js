@@ -2,6 +2,7 @@ class DishDetailView {
   constructor(container, model) {
     this.container = container;
     this.model = model;
+    this.currentDish;
     this.dishName = $(container).find("#dish-name");
     this.dishImage = $(container).find("#dish-image");
     this.dishDescription = $(container).find("#dish-description");
@@ -19,6 +20,9 @@ class DishDetailView {
     let guests = this.model.getNumberOfGuests();
     switch (changeDetails) {
       case 0:
+        if(!this.currentDish) {
+          return;
+        }
         this.numberOfGuests.html(guests)
         this.table.find('.variable-td').each((i, e) => {
           if (e.hasAttribute("data-single-amount")) {
@@ -27,30 +31,32 @@ class DishDetailView {
             e.innerHTML = guests;
           }
         })
-        this.totalPriceTag.html("TODO");
+        this.totalPriceTag.html(this.currentDish.extendedIngredients.length * guests);
         break;
       case 2:
         let dish = this.model.getCurrentSelection()
-        this.model.getDish(dish.id).then(res => {
-          res[0].then(dish => {
-            console.log(dish);
-            this.dishName.html(dish.title);
-            this.dishImage.attr("src", dish.image);
-            this.numberOfGuests.html(guests)
-            $(this.container).find(".recipe-data").remove();
-    
-            dish.extendedIngredients.forEach((ingredient) => {
-              this.tableEntryPoint.after(this.tableRow(ingredient, guests));
-            })
+        let body = $("body");
+        body.addClass("loading");
+        Promise.all([this.model.getDish(dish.id), this.model.getDishSummary(dish.id)]).then(res => {
+          this.dishName.html(res[0].title);
+          res[0].summary = res[1].summary;
+          this.currentDish = res[0];
+          this.dishImage.attr("src", res[0].image);
+          this.numberOfGuests.html(guests)
+          $(this.container).find(".recipe-data").remove();
+          res[0].extendedIngredients.forEach((ingredient) => {
+            this.tableEntryPoint.after(this.tableRow(ingredient, guests));
           })
-          
-          res[1].then(dish=> {
-            this.dishDescription.html(dish.summary);
-          }).then("all done")
-          
+          this.dishDescription.html(res[0].summary);
+          if (res[0].instructions) {
+            this.dishPreparation.html(res[0].instructions)
+          } else {
+            this.dishPreparation.html("Instructions missing for this recipe")
+          }
+          this.totalPriceTag.html(res[0].extendedIngredients.length * guests);
+          body.removeClass("loading");
         })
-        
-        this.totalPriceTag.html("TODO");
+
         break;
     }
   }
@@ -59,7 +65,7 @@ class DishDetailView {
     let price = 1;
     var html = `
       <tr class="recipe-data">
-        <td class="variable-td" data-single-amount=${ingredient.amount}>${ingredient.amount}</td>
+        <td class="variable-td" data-single-amount=${ingredient.amount}>${ingredient.amount*guests}</td>
         <td>${ingredient.unit}</td>
         <td>${ingredient.name}</td>
         <td>SEK</td>
