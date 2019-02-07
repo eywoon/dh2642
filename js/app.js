@@ -5,21 +5,20 @@ window.onload= function() {
 class GeneralStateController {
 	
 	constructor() {
-		const model = new DinnerModel();
-		const frontPageView = new FrontPageView(document.querySelector("#frontPageView"));
-		const frontPageViewController = new FrontPageViewController(frontPageView, model, this);
-		const sideBarView = new SideBarView(document.querySelector("#sideBarView"), model);
-		const sideBarViewController = new SideBarViewController(sideBarView, model, this);
-		const topBarView = new TopBarView(document.querySelector("#topBarView"), model);
-		const topBarViewController = new TopBarViewController(topBarView, model, this);
-		const dishSearchView = new DishSearchView(document.querySelector("#dishSearchView"), model);
-		const dishSearchViewController = new DishSearchViewController(dishSearchView, model, this);
-		const dishDetailView = new DishDetailView(document.querySelector("#dishDetailView"), model);
-		const dishDetailViewController = new DishDetailViewController(dishDetailView, model, this);
-		const dinnerOverView = new DinnerOverView(document.querySelector("#dinnerOverView"), model);
-		const dinnerOverViewController = new DinnerOverViewController(dinnerOverView, model, this);
-		const dinnerPrintView = new DinnerPrintView(document.querySelector("#dinnerPrintView"), model);
-		const dinnerPrintViewController = new DinnerPrintViewController(dinnerPrintView, model);
+		this.model = new DinnerModel();
+		this.frontPageView = new FrontPageView(document.querySelector("#frontPageView"));
+		this.frontPageViewController = new FrontPageViewController(this.frontPageView, this.model, this);
+		this.sideBarView = new SideBarView(document.querySelector("#sideBarView"), this.model);
+		this.sideBarViewController = new SideBarViewController(this.sideBarView, this.model, this);
+		this.topBarView = new TopBarView(document.querySelector("#topBarView"), this.model);
+		this.topBarViewController = new TopBarViewController(this.topBarView, this.model, this);
+		this.dishSearchView = new DishSearchView(document.querySelector("#dishSearchView"), this.model, this);
+		this.dishSearchViewController = new DishSearchViewController(this.dishSearchView, this.model, this);
+		this.dishDetailView = new DishDetailView(document.querySelector("#dishDetailView"), this.model);
+		this.dishDetailViewController = new DishDetailViewController(this.dishDetailView, this.model, this);
+		this.dinnerOverView = new DinnerOverView(document.querySelector("#dinnerOverView"), this.model);
+		this.dinnerOverViewController = new DinnerOverViewController(this.dinnerOverView, this.model, this);
+		this.dinnerPrintView = new DinnerPrintView(document.querySelector("#dinnerPrintView"), this.model);
 		this.renderFrontPage()
 	}
 	

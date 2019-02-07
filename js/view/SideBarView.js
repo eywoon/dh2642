@@ -10,38 +10,51 @@ class SideBarView {
       this.totalPriceTag = $(container).find("#total-price-tag");
       this.confirmButton = $(container).find("#confirm-button");
       this.sideBarMobilePrice = $(container).find(".sidebar-price");
+      this.cartContainer = $(container).find('#cart-container');
       model.addObserver(this);
     }
     
     update(model, changeDetails){
-      if(changeDetails !== 2) { //do for both changes to guestnumber and changes to menu a lil hack
-        if(model.isMenuEmpty()) {
-          this.confirmButton.addClass("blur");
-          this.sideBarMobilePrice.html("");
-        } else {
-          this.confirmButton.removeClass("blur");
-          this.sideBarMobilePrice.html(model.getTotalMenuPrice()+ " SEK");
+      let fullPrice = this.model.getTotalMenuPrice()
+      switch(changeDetails) {
+        case 0:
+        this.totalPriceTag.html(fullPrice);
+        if(!model.isMenuEmpty()) {
+          this.sideBarMobilePrice.html(fullPrice+ " SEK");
         }
-        this.cart.find('.cart-data').remove()
-        let menu = model.getFullMenu();
-        menu.forEach(function(dish) {
-          if(dish !== null) {
-            this.totalPriceContainer.before(this.cartItem(dish))
+        let guests = this.model.getNumberOfGuests();
+        this.cartContainer.find('.variable').each((i, e) => {
+          if (e.hasAttribute("data-single-amount")) {
+            e.innerHTML = e.getAttribute("data-single-amount") * guests;
+          } else {
+            e.innerHTML = guests;
           }
-        }.bind(this))
-        var price = this.model.getTotalMenuPrice();
-        this.totalPriceTag.html(price);
-        
-        
-      } 
+        })
+        break;
+        case 1:
+          if(model.isMenuEmpty()) {
+            this.confirmButton.addClass("blur");
+            this.sideBarMobilePrice.html("");
+          } else {
+            this.confirmButton.removeClass("blur");
+            this.sideBarMobilePrice.html(fullPrice+ " SEK");
+          }
+          this.cart.find('.cart-data').remove()
+          let menu = model.getFullMenu();
+          menu.forEach(dish => {
+            this.totalPriceContainer.before(this.cartItem(dish))
+          })
+          this.totalPriceTag.html(fullPrice);
+        break;
+      }
     }
     
     cartItem(dish) {
-      var price = this.model.getDishPrice(dish.id)*this.model.getNumberOfGuests();
+      var price = dish.extendedIngredients.length*this.model.getNumberOfGuests();
       return `
         <div class="cart-data-row cart-data">
-          <p class="cart-cell">${dish.name}</p>
-          <p class="cart-cell">${price}</p>
+          <p class="cart-cell">${dish.title}</p>
+          <p data-single-amount="${dish.extendedIngredients.length}" class="cart-cell variable">${price}</p>
         </div>
       `;
     } 

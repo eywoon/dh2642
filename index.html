@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Dinner planner</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="main-grid.css">
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
@@ -103,10 +102,22 @@
                 </div>
                 <div class="col">
                   <select name="types" id="select-type">
+                    <option value="">All</option>
+                    <option value="main course">main course</option>
+                    <option value="side dish">side dish</option>
+                    <option value="dessert">dessert</option>
+                    <option value="appetizer">appetizer</option>
+                    <option value="salad">salad</option>
+                    <option value="bread">bread</option>
+                    <option value="breakfast">breakfast</option>
+                    <option value="soup">soup</option>
+                    <option value="beverage">beverage</option>
+                    <option value="sauce">sauce</option>
+                    <option value="drink">drink</option>
                     </select>
                 </div>
                 <div class="col-sm-4">
-                  <button id="search-button" class="button" type="button" name="button">Search</button>
+                  <button id="search-button" class="button center" type="button" name="button">Search</button>
                 </div>
               </div>
 
@@ -128,10 +139,12 @@
             <div class="dish">
               <h2 id="dish-name"></h2>
               <figure>
-                <img class="detail-image" id="dish-image" alt="Meatballs">
+                <img class="detail-image" id="dish-image" alt="">
                 <figcaption id="dish-description">
                 </figcaption>
               </figure>
+              <h2>Preparation</h2>
+              <p id="dish-preparation"></p>
               <button id="back-button" class="button" type="button" name="previous">Back to search</button>
             </div>
           </div>
@@ -217,6 +230,7 @@
       
     </div>
   </div>
+<div class="modal"><!-- Place at bottom of page --></div>
 
 <script src="https://code.jquery.com/jquery.js"></script>
   <!-- The application JavaScript code -->
@@ -229,6 +243,7 @@
   <script src="js/view/DishDetailView.js"></script>
   <script src="js/view/DinnerOverView.js"></script>
   <script src="js/view/DinnerPrintView.js"></script>
+  <script src="js/view/ItemDetailView.js"></script>
   <script src="js/controller/FrontPageViewController.js"></script>
   <script src="js/controller/SideBarViewController.js"></script>
   <script src="js/controller/TopBarViewController.js"></script>
@@ -236,7 +251,7 @@
   <script src="js/controller/DishDetailViewController.js"></script>
   <script src="js/controller/DinnerOverViewController.js"></script>
   <script src="js/controller/DinnerPrintViewController.js"></script>
-
+  <script src="js/controller/ItemDetailViewController.js"></script>
 
 
 
